@@ -85,6 +85,11 @@ export const ArtisanForm = () => {
     <div className="z-[100] -mt-16 col-span-2 lg:col-span-1 flex max-w-lg flex-col gap-3 rounded-lg bg-white shadow-xl">
       <div className="rounded-t-lg bg-primary p-3 border-white border-2">
         <h2 className="text-center font-heading text-xl font-bold text-white">
+          Craft School
+        </h2>
+      </div>
+      <div className="rounded-t-lg bg-primary p-3 border-white border-2">
+        <h2 className="text-center font-heading text-xl font-bold text-white">
           Find an Artisan: Tailored To Your Needs
         </h2>
       </div>

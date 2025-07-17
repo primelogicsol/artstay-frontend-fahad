@@ -87,11 +87,10 @@ const Review = () => {
         {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="font-heading text-2xl md:text-4xl font-extrabold" style={{ color: 'rgb(0,83,128)' }} >
-            What Our Travelers Say
+            Their Journey, Their Words
           </h2>
           <p className="font-text text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
-            Discover authentic experiences through the words of our guests who have explored Kashmir&apos;s rich craft
-            heritage with us.
+            Every traveler carries home a story, hear how they connected with Kashmir’s soul through its crafts, people, and places.
           </p>
         </div>
 

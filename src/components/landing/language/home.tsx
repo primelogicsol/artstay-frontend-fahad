@@ -12,7 +12,7 @@ export const LanguageLanding = () => {
         <LanguageForm />
         <div className="col-span-2 grid place-content-end gap-3 md:gap-3 lg:col-span-1">
           <h2 className="font-heading text-2xl md:text-4xl font-extrabold text-secondary">
-            Kashmir Language Services
+            Language Services – Kashmiri Clarity, Global Connection
           </h2>
           <h3 className="font-heading text-lg md:text-xl font-bold">
             Bridge the language gap during your Kashmir visit

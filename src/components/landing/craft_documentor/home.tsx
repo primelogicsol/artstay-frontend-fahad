@@ -1,18 +1,18 @@
 "use client";
 
 import { CenterSection } from "~/components/common/center-section";
-import { DiningCardData } from "~/constants/card";
+import { DocumentorCardData } from "~/constants/card";
 import { Banner } from "~/components/common/banner";
-import { diningBanner } from "~/constants/banner";
-import { DiningForm } from "~/components/landing/dining/form";
+import { businessBanner } from "~/constants/banner";
+import { BusinessForm } from "~/components/landing/business/form";
 
-export const DiningLanding = () => {
+export const DocumentorLanding = () => {
   // const [currentBannerIndex, setCurrentBannerIndex] = useState(0);
 
   // useEffect(() => {
   //   const interval = setInterval(() => {
   //     setCurrentBannerIndex((prevIndex) =>
-  //       prevIndex === diningBanner.length - 1 ? 0 : prevIndex + 1
+  //       prevIndex === businessBanner.length - 1 ? 0 : prevIndex + 1
   //     );
   //   }, 5000); // Change banner every 5 seconds
 
@@ -22,9 +22,9 @@ export const DiningLanding = () => {
   return (
     <>
       <div className="relative">
-        <Banner banner={diningBanner} />
+        <Banner banner={businessBanner} />
         {/* <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
-          {diningBanner.map((_, index) => (
+          {businessBanner.map((_, index) => (
             <button
               key={index}
               className={`h-2 w-2 rounded-full transition-all ${
@@ -39,39 +39,38 @@ export const DiningLanding = () => {
         </div> */}
       </div>
       <CenterSection className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 p-4 md:p-6">
-        <DiningForm />
+        <BusinessForm />
         <div className="col-span-2 grid place-content-end gap-3 md:gap-3 lg:col-span-1">
           <h2 className="font-heading text-2xl md:text-4xl font-extrabold text-secondary">
-            Dining Voyage – Culinary Journey with Kashmiri Flavors
+            Craft Documenter – Capturing the Soul of Handmade Kashmir
           </h2>
           <h3 className="font-heading text-lg md:text-xl font-bold">
-            A gastronomic journey through Kashmir&apos;s culinary heritage
+            Comprehensive resource connecting artisans, businesses, & consumers
+            within the Kashmiri craft industry.
           </h3>
           <p className="font-text">
-            A Signature Culinary Experience by ArtStay – The World&apos;s First & Largest Handicrafts–Tourism Convergence Program, Dedicated to Kashmir Valley (India)
-            Kashmir Dining Voyage is a curated exploration of Kashmir&apos;s legendary cuisine—anchored in artistry, tradition, and immersive settings.
+            Craft Documenter by ArtStay is a specialized service dedicated to capturing, preserving, and showcasing the real stories behind Kashmir&apos;s world-renowned crafts. Through guided field documentation, our team works alongside artisans to document techniques, tools, raw materials, ancestral methods, and evolving styles.          </p>
+          <p>
+            We create verified digital profiles for artisans, complete with high-quality photos, videos, interviews, lineage histories, and craft certifications. These records are added to a central archival system that empowers buyers, researchers, tourism bodies, and cultural institutions worldwide.
           </p>
           <p>
-            his signature culinary experience invites guests to savor Wazwan, the royal multi-course feast of Kashmir, served in majestic spaces adorned with papier-mâché ceilings, walnut-wood décor, and embroidered crewel linens.
-            Dine beside lakes, in saffron gardens, or inside hand-carved houseboats, while savoring slow-cooked Rogan Josh, Kashmiri Haakh, smoked trout, Gushtaba, and saffron-infused Kehwa. Meals are crafted by traditional wazas and modern chefs alike, using organic, locally sourced ingredients.
-            This is not just about food, it&apos;s about ritual, hospitality, fragrance, and folklore served together on copper platters.
-          </p>
-          <p>
-            Kashmir Dining Voyage, where every meal is a cultural celebration <br /> Every flavor tells a story.
+            Whether you&apos;re a tourist or an artisan preserving your family legacy. <br />  Craft Documenter ensures your story lives on.
           </p>
         </div>
         <div className="col-span-2 grid gap-6 md:gap-8">
           <h2 className="text-center font-heading text-2xl md:text-4xl font-extrabold">
-            Why Choose <strong className="text-secondary">Dining Voyage</strong>
+            Why Choose {" "}
+            <strong className="text-secondary">
+              Craft Documenter
+            </strong>
           </h2>
           <div className="flex justify-center">
             <p className="max-w-2xl text-center font-text text-xs md:text-sm">
-              We redefine culinary tourism by combining exceptional food with extraordinary 
-              locations and cultural immersion. Kashmir Dining Voyage is a refined celebration of the Valley&apos;s most sacred art form, its cuisine. Curated by ArtStay, this signature journey elevates food into a cultural expression of Kashmir&apos;s identity, history, and soul.
-            </p>
+              We combine field-based storytelling with research-grade documentation, offering the most trusted archive of Kashmir&apos;s artisan excellence.
+A Signature Documentation & Storytelling Experience by ArtStay – The World&apos;s First & Largest Handicrafts–Tourism Convergence Program, Dedicated to Kashmir Valley (India). </p>
           </div>
           <div className="grid gap-4 md:gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {DiningCardData.map((benefit, index) => (
+            {DocumentorCardData.map((benefit, index) => (
               <div
                 className="group grid place-items-center gap-4 rounded-lg border p-6 transition-colors hover:bg-primary"
                 key={index}

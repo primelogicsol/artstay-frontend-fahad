@@ -12,7 +12,7 @@ export default function ProjectGlimpse() {
             <span className="inline-block w-16 h-1 rounded bg-[#0085CC] opacity-70"></span>
           </div>
           <p className="text-[#005380] text-lg font-semibold mb-8">
-            The convergence of Kashmir&apos;s Tourism and Handicrafts
+            The convergence of Kashmir&apos;s Tourism and Handicrafts. <br />  Kashmir&apos;s Largest Shared Vision for Craft & Culture
           </p>
           {/* Description Text */}
           <div className="flex items-center justify-between gap-8 flex-col md:flex-row">

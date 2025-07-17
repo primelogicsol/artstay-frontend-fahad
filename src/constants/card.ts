@@ -85,6 +85,39 @@ export const BusinessCardData = [
   },
 ];
 
+export const DocumentorCardData = [
+  {
+    image: "/icons/ticket.svg",
+    title: "Multimedia Field Documentation",
+    des: "Book expert drone videographers, and photographers to capture your artisan workshops, travels, or culture-based tours in stunning cinematic and documentary formats.",
+  },
+  {
+    image: "/icons/badge.svg",
+    title: "Verified Artisan Profiles",
+    des: "All operators are pre-screened with verified portfolios, specializations, local knowledge, and multilingual communication skills for a seamless user experience.",
+  },
+  {
+    image: "/icons/globe.svg",
+    title: "Craft Authenticity Badges",
+    des: "All crafts receive a blockchain-authenticated CraftLore ID, third-party verification, and GI tag details (if applicable) to guarantee authenticity and transparency in global markets.",
+  },
+  {
+    image: "/icons/globe.svg",
+    title: "Institutional Access for Researchers",
+    des: "Universities, curators, and scholars access our secure database for academic research, policy design, preservation efforts, and craft-focused educational programming across disciplines.",
+  },
+  {
+    image: "/icons/globe.svg",
+    title: "Preserves Elder Knowledge",
+    des: "Visitors can co-document artisan sessions and receive a digital craft portfolio, blending experiential learning with cultural contribution and long-term personal mementos.",
+  },
+  {
+    image: "/icons/globe.svg",
+    title: "Global Recognition, Local Impact",
+    des: "Documentation supports visa applications, exhibitions, and fair trade certification, strengthening global respect for artisans while generating local pride and sustainable economic value.",
+  },
+];
+
 export const TourCardData = [
   {
     image: "/icons/ticket.svg",

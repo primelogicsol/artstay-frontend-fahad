@@ -13,7 +13,7 @@ export const SafariLanding = () => {
         <SafariForm />
         <div className="col-span-2 grid place-content-end gap-3 md:gap-3 lg:col-span-1">
           <h2 className="font-heading text-2xl md:text-4xl font-extrabold text-secondary">
-            Kashmir Craft Safari
+            Craft Safari – Journey with Kashmiri Artisan
           </h2>
           <h3 className="font-heading text-lg md:text-xl font-bold">
             Guided tours of artisan villages, offering firsthand look at the

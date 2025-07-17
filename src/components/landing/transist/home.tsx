@@ -13,7 +13,7 @@ export const TransitLanding = () => {
         <TransitForm />
         <div className="col-span-2 grid place-content-end gap-3 md:gap-3 lg:col-span-1">
           <h2 className="font-heading text-2xl md:text-4xl font-extrabold text-secondary">
-            Kashmir Eco Transit
+            Eco Transit – Green Mobility through Kashmiri Landscapes
           </h2>
           <h3 className="font-heading text-lg md:text-xl font-bold">
             Sustainable transportation through Kashmir&apos;s majestic landscapes

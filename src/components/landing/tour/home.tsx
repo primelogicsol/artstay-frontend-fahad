@@ -13,7 +13,7 @@ export const TourLanding = () => {
         <TourForm />
         <div className="col-span-2 grid place-content-end gap-3 md:gap-3 lg:col-span-1">
           <h2 className="font-heading text-2xl md:text-4xl font-extrabold text-secondary">
-            Kashmir Traditional Tour
+            Kashmir Tour – Experience the Valley’s Living Culture
           </h2>
           <h3 className="font-heading text-lg md:text-xl font-bold">
             Kashmir has surged to become the most Googled Travel Destination,
