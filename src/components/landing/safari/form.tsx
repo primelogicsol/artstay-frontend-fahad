@@ -7,6 +7,13 @@ import {
   FormControl,
   FormMessage,
 } from "~/components/ui/form";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "~/components/ui/select";
 import { Button } from "~/components/ui/button";
 import { Checkbox } from "~/components/ui/checkbox";
 import { Input } from "~/components/ui/input";
@@ -23,8 +30,7 @@ const destinations = [
   {
     id: "safakadal",
     label: "Safakadal & Eidgah",
-    description:
-      "Chain-stitch, aari embroidery in motion",
+    description: "Chain-stitch, aari embroidery in motion",
   },
   {
     id: "raniwari",
@@ -37,14 +43,24 @@ const destinations = [
     description: "Zari, namda, copperware artisan brilliance",
   },
   {
-    id: "nallah",
+    id: "aali",
     label: "Aali Kadal",
     description: "Pashmina dyeing, zari, copperware excellence",
   },
   {
-    id: "nallah",
-    label: "Kanihama & Zainakote",
-    description: "Kani weaving, zari, silver timeless craft",
+    id: "kanihama",
+    label: "Kanihama",
+    description: "Kani shawls woven with coded needles",
+  },
+  {
+    id: "zainakote",
+    label: "Zainakote",
+    description: "Zari embroidery and silver-thread craftsmanship",
+  },
+  {
+    id: "kakapora",
+    label: "Kakapora",
+    description: "Gabba felting, crewel embroidery, wool artistry",
   },
 ];
 
@@ -53,6 +69,16 @@ const formSchema = z
     destinations: z
       .array(z.string())
       .min(1, "Please select at least one destination"),
+    activityPreferences: z
+      .string({
+        required_error: "Please select an activity preference",
+      })
+      .min(1, "Please select at least one activity preference"),
+    timeSlot: z
+      .string({
+        required_error: "Please select a time slot",
+      })
+      .min(1, "Please select a time slot"),
     checkIn: z.string().min(1, "Check-in date is required"),
     checkOut: z.string().min(1, "Check-out date is required"),
     adults: z.number().min(1, "At least one adult is required"),
@@ -68,6 +94,8 @@ export const SafariForm = () => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       destinations: [],
+      activityPreferences: "",
+      timeSlot: "",
       checkIn: "",
       checkOut: "",
       adults: 1,
@@ -83,7 +111,8 @@ export const SafariForm = () => {
     <div className="z-[100] mx-auto -mt-16 w-full max-w-xl rounded-lg bg-white shadow-lg">
       <div className="rounded-t-lg border-2 border-white bg-primary p-4 text-white">
         <h2 className="text-center text-xl font-bold">
-          Find A Craft Safari Cluster
+          Craft Safari - Journey with Kashmiri Artisan <br />
+          <i className="text-sm">Not Just a Tour, A Cultural Revival</i>
         </h2>
       </div>
 
@@ -91,7 +120,7 @@ export const SafariForm = () => {
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 p-6">
           <div>
             <FormLabel className="mb-3 block text-gray-600">
-              Select One or More Safari Destinations.*
+              Select Craft Villages to Visit (Choose all that apply)
             </FormLabel>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
               {destinations.map((destination) => (
@@ -127,6 +156,62 @@ export const SafariForm = () => {
                 </div>
               ))}
             </div>
+            <FormMessage />
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            <FormField
+              control={form.control}
+              name="activityPreferences"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-gray-600">Activity Preferences</FormLabel>
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue placeholder="– Select Activity Preferences –" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <SelectItem value="liveArtisan">Live Artisan Demonstrations</SelectItem>
+                      <SelectItem value="craftParticipation">Hands-on Craft Participation</SelectItem>
+                      <SelectItem value="artisanInterviews">Artisan Interviews & Story Sessions</SelectItem>
+                      <SelectItem value="ethicalShopping">Ethical Shopping</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="timeSlot"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-gray-600">Preferred Time Slot</FormLabel>
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue placeholder="– Select Time Slot –" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <SelectItem value="morning">Morning</SelectItem>
+                      <SelectItem value="afternoon">Afternoon</SelectItem>
+                      <SelectItem value="fullDay">Full Day</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
           </div>
 
           <div className="grid grid-cols-2 gap-4">

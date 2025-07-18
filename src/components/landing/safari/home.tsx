@@ -13,7 +13,7 @@ export const SafariLanding = () => {
         <SafariForm />
         <div className="col-span-2 grid place-content-end gap-3 md:gap-3 lg:col-span-1">
           <h2 className="font-heading text-2xl md:text-4xl font-extrabold text-secondary">
-            Craft Safari – Journey with Kashmiri Artisan
+           ArtStay Craft Safari – Journey with Kashmiri Artisan
           </h2>
           <h3 className="font-heading text-lg md:text-xl font-bold">
             Guided tours of artisan villages, offering firsthand look at the
@@ -25,12 +25,15 @@ export const SafariLanding = () => {
           </p>
           <p>Explore iconic craft villages like Kanihama (kani weaving), Zadibal (papier-mâché), Budgam (walnut carving), and Zainakote (copperware). Witness live demonstrations, interact with artisans, learn ancestral techniques, and shop ethically, directly from the source.
 
-            This initiative is not tourism for entertainment. It&apos;s tourism for preservation. Every Safari educates visitors, uplifts artisan families, and ensures that Kashmir&apos;s cultural legacy is celebrated, not commercialized.
-
-            By choosing Kashmir Craft Safari, travelers don&apos;t just visit Kashmir. They become part of its craft revival, economic dignity, and global recognition.
+            This initiative is not tourism for entertainment. It&apos;s tourism for preservation. 
           </p>
+          <p>Beyond thread and timber lies a truth that each artisan carries a silent library of memory. On these trails, you don&apos;t just see creation, you feel inheritance. The Craft Safari is a pilgrimage to skill, sweat, and ancestral knowing, where generations of wisdom flow through skilled hands.</p>
+          <p>Every Safari educates visitors, uplifts artisan families, and ensures that Kashmir&apos;s cultural legacy is celebrated, not commercialized. Through authentic experiences and meaningful connections, we preserve these timeless traditions.
+
+            By choosing Kashmir Craft Safari, travelers don&apos;t just visit Kashmir. They become part of its craft revival, economic dignity, and global recognition.</p>
+          
           <p>Craft is not a souvenir. It is a soul. <br /> Come witness the making of both.</p>
-          <p></p>
+          
         </div>
         <div className="col-span-2 grid gap-6 md:gap-8">
           <h2 className="text-center font-heading text-2xl md:text-4xl font-extrabold">

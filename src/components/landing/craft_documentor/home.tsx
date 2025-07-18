@@ -4,7 +4,7 @@ import { CenterSection } from "~/components/common/center-section";
 import { DocumentorCardData } from "~/constants/card";
 import { Banner } from "~/components/common/banner";
 import { businessBanner } from "~/constants/banner";
-import { BusinessForm } from "~/components/landing/business/form";
+import { BookCraftDocumentationSession } from "~/components/landing/craft_documentor/form";
 
 export const DocumentorLanding = () => {
   // const [currentBannerIndex, setCurrentBannerIndex] = useState(0);
@@ -39,14 +39,13 @@ export const DocumentorLanding = () => {
         </div> */}
       </div>
       <CenterSection className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 p-4 md:p-6">
-        <BusinessForm />
+        <BookCraftDocumentationSession />
         <div className="col-span-2 grid place-content-end gap-3 md:gap-3 lg:col-span-1">
           <h2 className="font-heading text-2xl md:text-4xl font-extrabold text-secondary">
-            Craft Documenter – Capturing the Soul of Handmade Kashmir
+            Craft Documenter – Capturing the Soul of Kashmir
           </h2>
           <h3 className="font-heading text-lg md:text-xl font-bold">
-            Comprehensive resource connecting artisans, businesses, & consumers
-            within the Kashmiri craft industry.
+            Comprehensive documentation service for both Kashmir’s tourism and handicrafts industries connecting artisans, travelers, institutions, and global audiences.
           </h3>
           <p className="font-text">
             Craft Documenter by ArtStay is a specialized service dedicated to capturing, preserving, and showcasing the real stories behind Kashmir&apos;s world-renowned crafts. Through guided field documentation, our team works alongside artisans to document techniques, tools, raw materials, ancestral methods, and evolving styles.          </p>

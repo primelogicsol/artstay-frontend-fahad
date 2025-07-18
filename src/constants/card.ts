@@ -39,13 +39,28 @@ export const SafariCardData = [
   },
   {
     image: "/icons/badge.svg",
-    title: "Cultural Immersion",
+    title: "Cultural Craft Immersion",
     des: "Experience the rich heritage of Kashmir through hands-on workshops and tours. Engage directly with skilled artisans and learn about traditional craft techniques.",
   },
   {
     image: "/icons/globe.svg",
     title: "Economic Empowerment",
     des: "Support local artisans by purchasing authentic crafts directly from them. Contribute to the economic sustainability of Kashmiri craft communities.",
+  },
+  {
+    image: "/icons/globe.svg",
+    title: "Craft Preservation Legacy",
+    des: "Help document endangered skills and forgotten techniques. Each visit contributes to safeguarding Kashmir’s intangible cultural heritage.",
+  },
+  {
+    image: "/icons/globe.svg",
+    title: "Skill-Based Storytelling",
+    des: "Crafts are not just objects, they’re biographies in wood, wool, and metal. Every artisan shares lived experience, ancestral memory, and spiritual dedication.",
+  },
+  {
+    image: "/icons/globe.svg",
+    title: "Ethical Culture Exchange",
+    des: "Participate in respectful, non-exploitative tourism that uplifts communities. Every interaction centers dignity, authenticity, and mutual appreciation.",
   },
 ];
 
