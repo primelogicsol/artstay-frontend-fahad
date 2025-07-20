@@ -22,8 +22,9 @@ import {
 
 const formSchema = z
   .object({
-    craftEvent: z.string().min(1, "Please select a craft event"),
-    craftFair: z.string().min(1, "Please select a craft fair"),
+    eventLocation: z.string().min(1, "Please select an event location"),
+    eventType: z.string().min(1, "Please select an event type"),
+    craftTheme: z.string().min(1, "Please select a craft theme"),
     checkIn: z.string().min(1, "Check-in date is required"),
     checkOut: z.string().min(1, "Check-out date is required"),
     adults: z.number().min(1, "At least one adult is required"),
@@ -38,8 +39,9 @@ export const FairForm = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      craftEvent: "",
-      craftFair: "",
+      eventLocation: "",
+      eventType: "",
+      craftTheme: "",
       checkIn: "",
       checkOut: "",
       adults: 1,
@@ -61,6 +63,90 @@ export const FairForm = () => {
 
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 p-6">
+          <FormField
+            control={form.control}
+            name="eventLocation"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-gray-600">Select Event Location*</FormLabel>
+                <Select
+                  onValueChange={field.onChange}
+                  defaultValue={field.value}
+                >
+                  <FormControl>
+                    <SelectTrigger>
+                      <SelectValue placeholder="– Select Location –" />
+                    </SelectTrigger>
+                  </FormControl>
+                  <SelectContent>
+                    <SelectItem value="international">International</SelectItem>
+                    <SelectItem value="national">National (India)</SelectItem>
+                    <SelectItem value="local">Local (Kashmir)</SelectItem>
+                  </SelectContent>
+                </Select>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="eventType"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-gray-600">Event Type Filter*</FormLabel>
+                <Select
+                  onValueChange={field.onChange}
+                  defaultValue={field.value}
+                >
+                  <FormControl>
+                    <SelectTrigger>
+                      <SelectValue placeholder="– Select Event Type –" />
+                    </SelectTrigger>
+                  </FormControl>
+                  <SelectContent>
+                    <SelectItem value="fair">Craft Fair</SelectItem>
+                    <SelectItem value="exhibition">Craft Exhibition</SelectItem>
+                    <SelectItem value="museum">Craft Museum</SelectItem>
+                  </SelectContent>
+                </Select>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="craftTheme"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-gray-600">Craft Focus Area*</FormLabel>
+                <Select
+                  onValueChange={field.onChange}
+                  defaultValue={field.value}
+                >
+                  <FormControl>
+                    <SelectTrigger>
+                      <SelectValue placeholder="– Select Craft Theme –" />
+                    </SelectTrigger>
+                  </FormControl>
+                  <SelectContent>
+                    <SelectItem value="papier-mache">Papier-Mâché</SelectItem>
+                    <SelectItem value="pashmina-kani">Pashmina / Kani</SelectItem>
+                    <SelectItem value="walnut-wood">Walnut Wood</SelectItem>
+                    <SelectItem value="copperware-metalwork">Copperware / Metalwork</SelectItem>
+                    <SelectItem value="zari-embroidery">Zari / Embroidery</SelectItem>
+                    <SelectItem value="gabba-namda">Gabba / Namda</SelectItem>
+                    <SelectItem value="jewelry-boutique">Jewelry / Boutique</SelectItem>
+                    <SelectItem value="sufi-art-calligraphy">Sufi Art & Calligraphy</SelectItem>
+                    <SelectItem value="innovative-crafts">Innovative Crafts</SelectItem>
+                  </SelectContent>
+                </Select>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
           <div className="grid grid-cols-2 gap-4">
             <FormField
               control={form.control}
@@ -140,61 +226,6 @@ export const FairForm = () => {
               )}
             />
           </div>
-
-          <FormField
-            control={form.control}
-            name="craftEvent"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel className="text-gray-600">
-                Select Craft Event*
-                </FormLabel>
-                <Select
-                  onValueChange={field.onChange}
-                  defaultValue={field.value}
-                >
-                  <FormControl>
-                    <SelectTrigger>
-                      <SelectValue placeholder="– Select Fair Category –" />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    <SelectItem value="fair">Craft Fairs</SelectItem>
-                    <SelectItem value="exhibition">Craft Exhibitions</SelectItem>
-                    <SelectItem value="museum">Craft Museums</SelectItem>
-                  </SelectContent>
-                </Select>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name="craftFair"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel className="text-gray-600">
-                Select Ongoing Craft Fair*
-                </FormLabel>
-                <Select
-                  onValueChange={field.onChange}
-                  defaultValue={field.value}
-                >
-                  <FormControl>
-                    <SelectTrigger>
-                      <SelectValue placeholder="– Select Ongoing Craft –" />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    <SelectItem value="sub1">Sub Craft 1</SelectItem>
-                    <SelectItem value="sub2">Sub Craft 2</SelectItem>
-                  </SelectContent>
-                </Select>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
 
           <Button type="submit" className="w-full">FIND NOW</Button>
         </form>
