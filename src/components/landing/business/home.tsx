@@ -42,18 +42,18 @@ export const BusinessLanding = () => {
         <BusinessForm />
         <div className="col-span-2 grid place-content-end gap-3 md:gap-3 lg:col-span-1">
           <h2 className="font-heading text-2xl md:text-4xl font-extrabold text-secondary">
-            Craft Store – Marketplace of Verified Kashmiri Artisans
+            ArtStay Affiliated Craft Store – Marketplace of Verified Crafts
           </h2>
           <h3 className="font-heading text-lg md:text-xl font-bold">
             Comprehensive resource connecting artisans, businesses, & consumers
             within the Kashmiri craft industry.
           </h3>
           <p className="font-text">
-            The Kashmir Craft Business Directory is a trusted digital gateway connecting consumers, artisans, and businesses across the Kashmiri handicrafts sector. Backed by ArtStay and authenticated by the Hamadan Craft Revival Foundation (HCRF), it ensures every listing is verified for quality and authenticity.
+            The ArtStay Kashmir Craft Affiliated store listing is a trusted digital gateway connecting consumers, artisans, and businesses across the Kashmiri handicrafts sector. Backed by ArtStay and authenticated by the Hamadan Craft Revival Foundation (HCRF), it ensures every listing is verified for quality and authenticity.
           </p>
           <p>
             Search by craft, region, or artisan using advanced filters and GPS tools. Whether you&apos;re seeking pashmina, walnut wood, papier-mâché, or copperware, you&apos;ll find genuine artisans and certified craft businesses, locally or globally.
-            This directory empowers conscious shopping, transparent trade, and artisan dignity.
+            This affiliated store listing empowers conscious shopping, transparent trade, and artisan dignity.
           </p>
           <p>
             Buy with confidence & Support with purpose. <br />
@@ -64,12 +64,12 @@ export const BusinessLanding = () => {
           <h2 className="text-center font-heading text-2xl md:text-4xl font-extrabold">
             Why Choose{" "}
             <strong className="text-secondary">
-              Kashmir Craft Business Directory
+              ArtStay Kashmir Craft Affiliated Store Listing
             </strong>
           </h2>
           <div className="flex justify-center">
             <p className="max-w-2xl text-center font-text text-xs md:text-sm">
-              The directory serve as a trusted source for authentic Kashmiri
+              The affiliated store listing serve as a trusted source for authentic Kashmiri
               handicrafts, helping to combat the issue of counterfeit products. Powered by ArtStay & Certified by Hamadan Craft Revival Foundation. The World&apos;s First & Largest Handicrafts–Tourism Convergence Program, dedicated to Kashmir valley (India).
             </p>
           </div>

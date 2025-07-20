@@ -20,20 +20,19 @@ import {
   SelectValue,
 } from "~/components/ui/select";
 
-
 const formSchema = z.object({
-  carft: z.string().min(1, "Please select a craft"),
+  craft: z.string().min(1, "Please select a craft"),
   location: z.string().min(1, "Please enter a location"),
-  rating: z.string().min(1, "Please select a craft"),
+  visitDate: z.string().min(1, "Please select a preferred date"),
 });
 
 export const BusinessForm = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      carft: "",
+      craft: "",
       location: "",
-      rating: "",
+      visitDate: "",
     },
   });
 
@@ -45,7 +44,8 @@ export const BusinessForm = () => {
     <div className="z-[100] -mt-16 mx-auto w-full max-w-xl rounded-lg bg-white shadow-lg">
       <div className="rounded-t-lg bg-primary p-4 text-white border-2 border-white">
         <h2 className="text-center text-xl font-bold">
-          Find A Craft Business/Shop
+          Find Nearby ArtStay Affiliated Craft Store  <br />
+<span className="text-sm italic">Not Just a Shop, A Platform of Trust & Tradition</span>
         </h2>
       </div>
 
@@ -53,7 +53,7 @@ export const BusinessForm = () => {
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 p-6">
           <FormField
             control={form.control}
-            name="carft"
+            name="craft"
             render={({ field }) => (
               <FormItem>
                 <FormLabel className="text-gray-600">
@@ -70,9 +70,7 @@ export const BusinessForm = () => {
                   </FormControl>
                   <SelectContent>
                     <SelectItem value="fair">Craft Fairs</SelectItem>
-                    <SelectItem value="exhibition">
-                      Craft Exhibitions
-                    </SelectItem>
+                    <SelectItem value="exhibition">Craft Exhibitions</SelectItem>
                     <SelectItem value="museum">Craft Museums</SelectItem>
                   </SelectContent>
                 </Select>
@@ -99,30 +97,15 @@ export const BusinessForm = () => {
 
           <FormField
             control={form.control}
-            name="carft"
+            name="visitDate"
             render={({ field }) => (
               <FormItem>
                 <FormLabel className="text-gray-600">
-                  Select Craft/Product*
+                  Preferred date for visit or delivery*
                 </FormLabel>
-                <Select
-                  onValueChange={field.onChange}
-                  defaultValue={field.value}
-                >
-                  <FormControl>
-                    <SelectTrigger>
-                      <SelectValue placeholder="– Select Craft/Product –" />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    <SelectItem value="all">All</SelectItem>
-                    <SelectItem value="1">1 Star</SelectItem>
-                    <SelectItem value="2">2 Star</SelectItem>
-                    <SelectItem value="3">3 Star</SelectItem>
-                    <SelectItem value="4">4 Star</SelectItem>
-                    <SelectItem value="5">5 Star</SelectItem>
-                  </SelectContent>
-                </Select>
+                <FormControl>
+                  <Input type="date" {...field} className="w-full" />
+                </FormControl>
                 <FormMessage />
               </FormItem>
             )}

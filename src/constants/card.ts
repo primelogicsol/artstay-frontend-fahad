@@ -80,23 +80,53 @@ export const FairCardData = [
     title: "Create Lasting Memories",
     des: "Leave with more than just beautiful crafts; carry with you the stories, experiences, & connections that make your visit to Kashmir Craft Fairs a truly unforgettable journey. Take home one-of-a-kind, authentic crafted with precision.",
   },
+  {
+    image: "/icons/globe.svg",
+    title: "Artisan-Led Economic Inclusion",
+    des: "Support fair trade by purchasing directly from artisan entrepreneurs. Each transaction helps promote income equality, rural employment, and sustainable livelihoods across Kashmir’s diverse craft communities.",
+  },
+  {
+    image: "/icons/globe.svg",
+    title: " Safeguarding Intangible Heritage",
+    des: "These fairs serve as living museums, preserving oral histories, rare techniques, and spiritual knowledge passed through generations. Every craft displayed is a testimony to Kashmir’s cultural continuity.",
+  },
+  {
+    image: "/icons/globe.svg",
+    title: "Global Cultural Exchange",
+    des: "Connect Kashmir’s artisans with the world. Whether you're a buyer, collector, or traveler, these events cultivate mutual understanding, artistic collaboration, and respect across cultures and borders.",
+  },
 ];
 
 export const BusinessCardData = [
   {
     image: "/icons/ticket.svg",
     title: "Verified Authenticity & Quality",
-    des: "The directory features only evaluated and verified artisans and businesses, ensuring that you are buying authentic, high-quality Kashmiri crafts. Detailed ratings provide assurance about the credibility and quality of the products, giving you confidence in your purchases.",
+    des: "The directory features only evaluated and verified artisans and businesses, ensuring that you are buying authentic, high-quality Kashmiri crafts. Detailed ratings provide assurance about the credibility and quality of the products.",
   },
   {
     image: "/icons/badge.svg",
     title: "Friendly & Localized Search",
-    des: "Advanced search and filter options help you quickly find specific crafts or artisans based on your preferences. Location-based search functionality allows you to discover artisans and craft businesses near you, making it convenient to shop locally and support your community.",
+    des: "Advanced search and filter options help you quickly find specific crafts or artisans based on your preferences. Location-based search functionality allows you to discover artisans and craft businesses near you.",
   },
   {
     image: "/icons/globe.svg",
     title: "Direct Access and Support",
-    des: "The directory facilitates direct contact with artisans & businesses. By purchasing directly from local artisans, you contribute to their economic well-being, ensuring fair compensation and supporting the sustainability of traditional Kashmiri crafts.",
+    des: "The directory facilitates direct contact with artisans & businesses. By purchasing directly from local artisans, ensuring fair compensation and supporting the sustainability of traditional Kashmiri crafts.",
+  },
+  {
+    image: "/icons/globe.svg",
+    title: "Global Buyer Confidence",
+    des: "Every listing is certified for quality and compliance, ensuring international buyers can source Kashmiri crafts with full trust. The platform bridges local craftsmanship with global transparency and reliability.",
+  },
+  {
+    image: "/icons/globe.svg",
+    title: "Anti-Counterfeit Protection",
+    des: "All vendors undergo verification by craft councils and foundations. This protects artisans from imitation markets while giving consumers assurance that their purchase is authentic, ethical, and origin-certified.",
+  },
+  {
+    image: "/icons/globe.svg",
+    title: "Data-Driven Craft Insights",
+    des: "Gain access to craft-specific business data, buyer trends, and artisan profiles. This empowers ethical sourcing, strategic partnerships, and long-term investment in Kashmir’s handmade economy.",
   },
 ];
 
@@ -268,33 +298,33 @@ export const RetreatCardData = [
 export const DiningCardData = [
   {
     image: "/icons/chef.svg",
-    title: "Master Chefs &amp; Authentic Recipes",
-    des: "Our chefs preserve centuries-old culinary traditions while adding contemporary flair. Each dish tells a story of Kashmir&apos;s rich gastronomic heritage.",
+    title: "Authentic Kashmiri Cuisine",
+    des: "Savor royal Wazwan, traditional trout, and saffron Kehwa, prepared by wazas and chefs using organic, local ingredients rooted in centuries of culinary wisdom.",
   },
   {
     image: "/icons/location.svg",
-    title: "Breathtaking Dining Locations",
-    des: "From floating restaurants to mountain peaks, each venue offers unforgettable ambiance that complements the dining experience.",
+    title: "Immersive Cultural Settings",
+    des: "Dine in paper-mâché halls, walnut-wood homes, gardens, or houseboats. Every space echoes Kashmir’s artistic spirit, turning each meal into a living gallery.",
   },
   {
     image: "/icons/farm.svg",
-    title: "Locally-Sourced Ingredients",
-    des: "We partner with organic farms &amp; local producers to bring you the freshest seasonal ingredients Kashmir has to offer.",
+    title: "Master Chefs & Wazas",
+    des: "Meet the artisans of taste, Kashmir’s legendary wazas and chefs who narrate recipes through rituals, skill, and sacred hospitality passed through generations.",
   },
   {
     image: "/icons/spice.svg",
-    title: "Spice &amp; Tea Pairings",
-    des: "Enhance your meal with our expert-selected spice combinations &amp; premium Kashmiri tea infusions.",
+    title: "Organic & Locally Sourced",
+    des: "All ingredients are ethically sourced from Kashmir’s villages, fresh herbs, saffron, trout, and rice, ensuring your meal is sustainable, seasonal, and deeply regional.",
   },
   {
     image: "/icons/culture.svg",
-    title: "Cultural Storytelling",
-    des: "Each course comes with stories about its history &amp; significance in Kashmiri culture from our knowledgeable hosts.",
+    title: "Sacred Hospitality Experience",
+    des: "Beyond food, it’s love, prayer, and poetry on a plate. Expect warm welcomes, spiritual rituals, and shared meals crafted with soul and reverence.",
   },
   {
     image: "/icons/custom.svg",
-    title: "Customizable Experiences",
-    des: "Tailor your dining voyage with special requests, from romantic setups to family-style feasts.",
+    title: "Unforgettable Culinary Moments",
+    des: "Capture handcrafted décor, traditional serving ware, and curated table experiences. Perfect for storytelling, photography, or intimate memories rooted in Kashmiri grace.",
   }
 ];
 
@@ -367,33 +397,33 @@ export const PlannerCardData = [
 export const LanguageCardData = [
   {
     image: "/icons/interpretation.svg",
-    title: "Certified Interpreters",
-    des: "Our professionals are fluent in both languages and understand cultural nuances for accurate communication.",
+    title: "Culturally Trained Interpreters",
+    des: "Our interpreters understand more than just grammar, they reflect cultural etiquette, artisan vocabulary, and regional nuance, ensuring every exchange feels human, warm, and respectful.",
   },
   {
     image: "/icons/clock.svg",
-    title: "Quick Response",
-    des: "Most interpretation requests can be arranged with just 24 hours notice, with emergency services available.",
+    title: "Global Language Coverage",
+    des: "From French and Arabic to Russian and Vietnamese, our service spans major global languages to support international guests, delegations, and business travelers.",
   },
   {
     image: "/icons/culture.svg",
-    title: "Cultural Mediation",
-    des: "We help navigate cultural differences beyond just words to create meaningful connections.",
+    title: "Craft & Artisan Context Experts",
+    des: "Our translators are trained in craft-specific terms—papier-mâché, crewel, wazwan, GI tags ensuring accuracy in artisan demos, exhibitions, and business talks.",
   },
   {
     image: "/icons/document.svg",
-    title: "Document Services",
-    des: "Official translations of permits, menus, signs, and other materials with certification available.",
+    title: "Confidential & Reliable Support",
+    des: "Professional conduct, client confidentiality, and context awareness are guaranteed ideal for legal interpretation, buyer negotiations, or sensitive artisan interviews.",
   },
   {
     image: "/icons/guide.svg",
-    title: "Tour Specialists",
-    des: "Interpreters trained in local history and attractions to enhance your sightseeing experience.",
+    title: "Flexible & On-Demand Booking",
+    des: "Book by the hour, half-day, or full-day. Services available on-site, via call, or during live virtual tours tailored to your schedule.",
   },
   {
     image: "/icons/medical.svg",
-    title: "Medical Terminology",
-    des: "Specialized interpreters for healthcare situations with knowledge of medical vocabulary.",
+    title: "Bridge Between Worlds",
+    des: "We’re not just translators, we’re cultural connectors. Our team helps you build trust, understand deeper meanings, and form genuine relationships across languages.",
   }
 ];
 
