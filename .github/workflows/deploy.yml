@@ -22,6 +22,6 @@ jobs:
         script: |
           cd /home/primelogicsol/coding/projects/kashmirartstay/artstay-frontend
           git pull origin main
-          npm install
+          npm ci
           npm run build
           pm2 restart artstay-frontend
