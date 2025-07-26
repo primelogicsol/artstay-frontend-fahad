@@ -42,19 +42,22 @@ export const DiningLanding = () => {
         <DiningForm />
         <div className="col-span-2 grid place-content-end gap-3 md:gap-3 lg:col-span-1">
           <h2 className="font-heading text-2xl md:text-4xl font-extrabold text-secondary">
-            Dining Voyage – Culinary Journey with Kashmiri Flavors
+            ArtStay Dining Voyage – Culinary Journey with Kashmiri Flavors
           </h2>
           <h3 className="font-heading text-lg md:text-xl font-bold">
             A gastronomic journey through Kashmir&apos;s culinary heritage
           </h3>
           <p className="font-text">
             A Signature Culinary Experience by ArtStay – The World&apos;s First & Largest Handicrafts–Tourism Convergence Program, Dedicated to Kashmir Valley (India)
-            Kashmir Dining Voyage is a curated exploration of Kashmir&apos;s legendary cuisine—anchored in artistry, tradition, and immersive settings.
-          </p>
+            Kashmir Dining Voyage is a curated exploration of Kashmir&apos;s legendary cuisine—anchored in artistry, tradition, and immersive settings. </p>
+        
           <p>
-            his signature culinary experience invites guests to savor Wazwan, the royal multi-course feast of Kashmir, served in majestic spaces adorned with papier-mâché ceilings, walnut-wood décor, and embroidered crewel linens.
+            This signature culinary experience invites guests to savor Wazwan, the royal multi-course feast of Kashmir, served in majestic spaces adorned with papier-mâché ceilings, walnut-wood décor, and embroidered crewel linens.
             Dine beside lakes, in saffron gardens, or inside hand-carved houseboats, while savoring slow-cooked Rogan Josh, Kashmiri Haakh, smoked trout, Gushtaba, and saffron-infused Kehwa. Meals are crafted by traditional wazas and modern chefs alike, using organic, locally sourced ingredients.
             This is not just about food, it&apos;s about ritual, hospitality, fragrance, and folklore served together on copper platters.
+          </p>
+            <p> Indulge in an authentic taste of Kashmir with our handcrafted specialties. From the aromatic Rogan Josh to the delicate Phirni, each dish tells a story of tradition and craftsmanship.
+          
           </p>
           <p>
             Kashmir Dining Voyage, where every meal is a cultural celebration <br /> Every flavor tells a story.

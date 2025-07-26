@@ -13,7 +13,7 @@ export const PlannerLanding = () => {
         <PlannerForm />
         <div className="col-span-2 grid place-content-end gap-3 md:gap-3 lg:col-span-1">
           <h2 className="font-heading text-2xl md:text-4xl font-extrabold text-secondary">
-            Travel Planner – Curated Itineraries with Kashmiri Insight
+            ArtStay Travel Planner – Curated Itineraries with Kashmiri Insight
           </h2>
           <h3 className="font-heading text-lg md:text-xl font-bold">
             Your complete guide to authentic Kashmiri experiences
@@ -21,6 +21,8 @@ export const PlannerLanding = () => {
           <p className="font-text">
             Kashmir Travel Planner is your complete companion for designing immersive, ethical, and unforgettable journeys through the Kashmir Valley. Whether you&apos;re dreaming of artisan workshops, Sufi shrines, houseboat dining, mountain retreats, or heritage walks, our planner helps you craft an itinerary that blends authenticity, comfort, and conscious travel.
           </p>
+          <p>Tailor your trip with bespoke add-ons like private Shikara rides on Dal Lake or cooking classes with local Wazwan chefs. Explore offbeat trails to hidden Sufi shrines or join artisan-led sessions crafting Pashmina shawls. Opt for wellness retreats with yoga amidst pine forests, photography tours capturing Kashmir’s ethereal landscapes, or stargazing nights in Gulmarg.</p>
+          <p>Our planner integrates these unique elements, ensuring a journey that reflects your interests while supporting local communities. From serene houseboat stays to adventurous treks and cultural festivals, every itinerary blends authenticity, eco-conscious travel, and personal fulfillment. Customize your pace with guided nature walks or leisurely heritage tours, immersing in Kashmir’s rich tapestry. Let us craft a memorable exploration of the valley’s soul, tailored to your desires, with options for family adventures or solo retreats, making every moment a celebration of its timeless beauty and traditions.</p>
           <p>Discover eco-friendly stays, curated craft villages, and local culinary gems, all while moving through the valley via Shikaras, guided walks, bicycles, or low-impact vehicles.
 
 This planner ensures that every leg of your journey supports local artisans, respects Kashmir&apos;s traditions, and honors the natural environment.

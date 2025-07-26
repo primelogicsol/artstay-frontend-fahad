@@ -22,7 +22,11 @@ import {
 
 const formSchema = z.object({
   craft: z.string().min(1, "Please select a craft"),
-  location: z.string().min(1, "Please enter a location"),
+  location: z.object({
+    country: z.string().min(1, "Please select a country"),
+    state: z.string().min(1, "Please select a state"),
+    city: z.string().min(1, "Please select a city"),
+  }),
   visitDate: z.string().min(1, "Please select a preferred date"),
 });
 
@@ -31,7 +35,11 @@ export const BusinessForm = () => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       craft: "",
-      location: "",
+      location: {
+        country: "",
+        state: "",
+        city: "",
+      },
       visitDate: "",
     },
   });
@@ -45,7 +53,7 @@ export const BusinessForm = () => {
       <div className="rounded-t-lg bg-primary p-4 text-white border-2 border-white">
         <h2 className="text-center text-xl font-bold">
           Find Nearby ArtStay Affiliated Craft Store  <br />
-<span className="text-sm italic">Not Just a Shop, A Platform of Trust & Tradition</span>
+          <span className="text-sm italic">Not Just a Shop, A Platform of Trust & Tradition</span>
         </h2>
       </div>
 
@@ -79,21 +87,85 @@ export const BusinessForm = () => {
             )}
           />
 
-          <FormField
-            control={form.control}
-            name="location"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel className="text-gray-600">
-                  Enter your location*
-                </FormLabel>
-                <FormControl>
-                  <Input placeholder="Enter your location" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+          <FormItem>
+            <FormLabel className="text-gray-600">Select Location*</FormLabel>
+            <div className="flex space-x-4">
+              <FormField
+                control={form.control}
+                name="location.country"
+                render={({ field }) => (
+                  <FormItem className="flex-1">
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                    >
+                      <FormControl>
+                        <SelectTrigger>
+                          <SelectValue placeholder="– Select Country –" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        <SelectItem value="usa">United States</SelectItem>
+                        <SelectItem value="canada">Canada</SelectItem>
+                        <SelectItem value="uk">United Kingdom</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="location.state"
+                render={({ field }) => (
+                  <FormItem className="flex-1">
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                    >
+                      <FormControl>
+                        <SelectTrigger>
+                          <SelectValue placeholder="– Select State –" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        <SelectItem value="ca">California</SelectItem>
+                        <SelectItem value="ny">New York</SelectItem>
+                        <SelectItem value="tx">Texas</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="location.city"
+                render={({ field }) => (
+                  <FormItem className="flex-1">
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                    >
+                      <FormControl>
+                        <SelectTrigger>
+                          <SelectValue placeholder="– Select City –" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        <SelectItem value="sf">San Francisco</SelectItem>
+                        <SelectItem value="nyc">New York City</SelectItem>
+                        <SelectItem value="austin">Austin</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+          </FormItem>
 
           <FormField
             control={form.control}

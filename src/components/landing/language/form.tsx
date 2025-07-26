@@ -63,11 +63,8 @@ export const LanguageForm = () => {
     <div className="z-[100] -mt-16 mx-auto w-full max-w-md rounded-lg bg-white shadow-lg">
       <div className="rounded-t-lg bg-primary p-4 text-white border-2 border-white">
         <h2 className="text-center text-xl font-bold">
-          Language Services
+          Engage in an ArtStay Language Exploration <br /> <span className="text-sm italic">A Journey into Kashmir’s Linguistic Soul & Heritage</span>
         </h2>
-        <p className="text-center text-sm opacity-80 mt-1">
-          Connect seamlessly during your Kashmir visit
-        </p>
       </div>
 
       <Form {...form}>

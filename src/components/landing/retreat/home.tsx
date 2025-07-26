@@ -13,7 +13,7 @@ export const RetreatLanding = () => {
         <RetreatForm />
         <div className="col-span-2 grid place-content-end gap-3 md:gap-3 lg:col-span-1">
           <h2 className="font-heading text-2xl md:text-4xl font-extrabold text-secondary">
-            Eco Retreat – Sustainable Stay with Kashmiri Soul
+            ArtStay Eco Retreat – Sustainable Stay with Kashmiri Soul
           </h2>
           <h3 className="font-heading text-lg md:text-xl font-bold">
             Sustainable luxury amidst Kashmir&apos;s pristine nature
@@ -26,7 +26,8 @@ Built with local materials and rooted in eco-friendly practices.
 
             
           </p>
-          <p> The retreat offers organic cuisine, guided eco-tours, and deep cultural connection.
+          <p>Immerse yourself in nature with our curated eco-activities, including guided nature walks and traditional Kashmiri craft workshops. Discover the art of organic gardening and learn to create sustainable souvenirs using local materials. Each experience connects you with Kashmir’s pristine environment and rich heritage. Enjoy serene meditation sessions amidst lush landscapes, fostering a deeper bond with nature and local traditions. Participate in eco-cleanups to preserve the valley’s beauty, blending adventure with conservation efforts.</p>
+          <p> Engage in stargazing nights under clear skies, guided by local experts, and savor organic farm-to-table meals prepared with seasonal produce. These activities promote mindfulness, cultural immersion, and environmental care, ensuring a holistic retreat that honors Kashmir’s soul while leaving a positive impact. The retreat offers organic cuisine, guided eco-tours, and deep cultural connection.
 
 Here, sustainability meets soul, and comfort is carved, stitched, and painted by Kashmir’s finest artisans.</p>
           <p>Kashmir Eco Retreat, where your room is a work of art. <br /> Your stay is a cultural embrace. </p>

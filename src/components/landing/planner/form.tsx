@@ -20,21 +20,42 @@ import {
   SelectValue,
 } from "~/components/ui/select";
 
-const formSchema = z.object({
-  tripType: z.string().min(1, "Please select trip type"),
-  travelDates: z.string().min(1, "Please select dates"),
-  travelers: z.number().min(1, "At least one traveler is required"),
-  interests: z.array(z.string()).min(1, "Select at least one interest"),
-});
+const formSchema = z
+  .object({
+    tripCategory: z.string().min(1, "Please select trip category"),
+    adultTravelers: z.number().min(1, "At least one adult traveler is required"),
+    childTravelers: z.number().min(0).optional(),
+    tripStartDate: z.string().min(1, "Trip start date is required"),
+    tripEndDate: z.string().min(1, "Trip end date is required"),
+    craftCulturalExperiences: z.array(z.string()).min(1, "Select at least one craft/cultural experience"),
+    tourismRetreats: z.array(z.string()).min(1, "Select at least one tourism/retreat option"),
+    supportServices: z.array(z.string()).min(1, "Select at least one support service"),
+    focusAreas: z.array(z.string()).min(1, "Select at least one focus area"),
+    stayType: z.string().min(1, "Please select stay type"),
+  })
+  .refine((data) => new Date(data.tripStartDate) > new Date(), {
+    message: "Trip start date must be in the future",
+    path: ["tripStartDate"],
+  })
+  .refine((data) => new Date(data.tripEndDate) > new Date(data.tripStartDate), {
+    message: "Trip end date must be after start date",
+    path: ["tripEndDate"],
+  });
 
 export const PlannerForm = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      tripType: "",
-      travelDates: "",
-      travelers: 2,
-      interests: [],
+      tripCategory: "",
+      adultTravelers: 2,
+      childTravelers: 0,
+      tripStartDate: "",
+      tripEndDate: "",
+      craftCulturalExperiences: [],
+      tourismRetreats: [],
+      supportServices: [],
+      focusAreas: [],
+      stayType: "",
     },
   });
 
@@ -42,46 +63,95 @@ export const PlannerForm = () => {
     console.log("Form submitted:", data);
   };
 
-  const interestOptions = [
-    "Cultural Crafts",
-    "Eco Retreats",
-    "Culinary",
+  const craftCulturalOptions = [
+    { id: "craft-school", label: "Craft School" },
+    { id: "craft-safari", label: "Craft Safari" },
+    { id: "craft-fair", label: "Craft Fair" },
+    { id: "craft-store", label: "Craft Store" },
+  ];
+
+  const tourismRetreatOptions = [
+    { id: "kashmir-tour", label: "Kashmir Tour" },
+    { id: "eco-retreat", label: "Eco Retreat" },
+    { id: "dining-voyage", label: "Dining Voyage" },
+  ];
+
+  const supportServiceOptions = [
+    { id: "language-services", label: "Language Services" },
+    { id: "eco-transit", label: "Eco Transit" },
+    { id: "travel-planner", label: "Travel Planner" },
+    { id: "craft-documenter", label: "Craft Documenter" },
+  ];
+
+  const focusAreaOptions = [
     "Adventure",
-    "Spiritual",
-    "Photography",
+    "Culinary",
+    "Spiritual/Sufi",
     "Wildlife",
-    "Houseboats"
+    "Photography",
+    "Academic/Research",
+    "Wellness/Slow Travel",
   ];
 
   return (
     <div className="z-[100] -mt-16 mx-auto w-full max-w-md rounded-lg bg-white shadow-lg">
       <div className="rounded-t-lg bg-primary p-4 text-white border-2 border-white">
         <h2 className="text-center text-xl font-bold">
-          Plan Your Kashmir Trip
+          Find Your ArtStay Kashmir Odyssey <br /> <span className="text-sm italic">Not Just a Journey, An Exploration of Kashmir’s Heart </span>
         </h2>
       </div>
 
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 p-4">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 p-6">
+          <FormField
+            control={form.control}
+            name="tripCategory"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-sm text-gray-600">Trip Category</FormLabel>
+                <Select onValueChange={field.onChange} defaultValue={field.value}>
+                  <FormControl>
+                    <SelectTrigger className="h-10">
+                      <SelectValue placeholder="Select" />
+                    </SelectTrigger>
+                  </FormControl>
+                  <SelectContent>
+                    <SelectItem value="solo">Solo</SelectItem>
+                    <SelectItem value="couple">Couple</SelectItem>
+                    <SelectItem value="family">Family</SelectItem>
+                    <SelectItem value="group">Group</SelectItem>
+                    <SelectItem value="corporate">Corporate</SelectItem>
+                    <SelectItem value="research">Research</SelectItem>
+                    <SelectItem value="pilgrimage">Pilgrimage</SelectItem>
+                  </SelectContent>
+                </Select>
+                <FormMessage className="text-xs" />
+              </FormItem>
+            )}
+          />
+
           <div className="grid grid-cols-2 gap-4">
             <FormField
               control={form.control}
-              name="tripType"
+              name="adultTravelers"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-sm">Trip Type</FormLabel>
-                  <Select onValueChange={field.onChange}>
+                  <FormLabel className="text-sm text-gray-600">Adult Travelers</FormLabel>
+                  <Select
+                    onValueChange={(value) => field.onChange(parseInt(value))}
+                    defaultValue={field.value.toString()}
+                  >
                     <FormControl>
                       <SelectTrigger className="h-10">
                         <SelectValue placeholder="Select" />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      <SelectItem value="solo">Solo</SelectItem>
-                      <SelectItem value="couple">Couple</SelectItem>
-                      <SelectItem value="family">Family</SelectItem>
-                      <SelectItem value="friends">Friends</SelectItem>
-                      <SelectItem value="group">Group</SelectItem>
+                      {Array.from({ length: 10 }, (_, i) => (
+                        <SelectItem key={i + 1} value={(i + 1).toString()}>
+                          {i + 1} {i + 1 === 1 ? "person" : "people"}
+                        </SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
                   <FormMessage className="text-xs" />
@@ -91,23 +161,262 @@ export const PlannerForm = () => {
 
             <FormField
               control={form.control}
-              name="travelers"
+              name="childTravelers"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-sm">Travelers</FormLabel>
-                  <FormControl>
-                    <select
-                      className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
-                      {...field}
-                      onChange={(e) => field.onChange(parseInt(e.target.value))}
-                    >
-                      {[1, 2, 3, 4, 5, 6].map((num) => (
-                        <option key={num} value={num}>
-                          {num} {num === 1 ? "person" : "people"}
-                        </option>
+                  <FormLabel className="text-sm text-gray-600">Child Travelers</FormLabel>
+                  <Select
+                    onValueChange={(value) => field.onChange(parseInt(value))}
+                    defaultValue={field.value?.toString() ?? "0"}
+                  >
+                    <FormControl>
+                      <SelectTrigger className="h-10">
+                        <SelectValue placeholder="Select" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      {Array.from({ length: 11 }, (_, i) => (
+                        <SelectItem key={i} value={i.toString()}>
+                          {i}
+                        </SelectItem>
                       ))}
-                    </select>
+                    </SelectContent>
+                  </Select>
+                  <FormMessage className="text-xs" />
+                </FormItem>
+              )}
+            />
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            <FormField
+              control={form.control}
+              name="tripStartDate"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-sm text-gray-600">Trip Start Date</FormLabel>
+                  <FormControl>
+                    <Input type="date" className="h-10" {...field} />
                   </FormControl>
+                  
+                  <FormMessage className="text-xs" />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="tripEndDate"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-sm text-gray-600">Trip End Date</FormLabel>
+                  <FormControl>
+                    <Input type="date" className="h-10" {...field} />
+                  </FormControl>
+                  
+                  <FormMessage className="text-xs" />
+                </FormItem>
+              )}
+            />
+          </div>
+
+          <div className="grid grid-cols-3 gap-4">
+            <FormField
+              control={form.control}
+              name="craftCulturalExperiences"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-sm text-gray-600">Craft & Cultural</FormLabel>
+                  <Select
+                    onValueChange={(value) => {
+                      const currentValues = field.value || [];
+                      if (currentValues.includes(value)) {
+                        field.onChange(currentValues.filter((v) => v !== value));
+                      } else {
+                        field.onChange([...currentValues, value]);
+                      }
+                    }}
+                  >
+                    <FormControl>
+                      <SelectTrigger className="h-10">
+                        <SelectValue
+                          placeholder={
+                            field.value && field.value.length > 0
+                              ? `${field.value.length} option${field.value.length > 1 ? "s" : ""} selected`
+                              : "Select"
+                          }
+                        />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      {craftCulturalOptions.map((option) => (
+                        <SelectItem
+                          key={option.id}
+                          value={option.id}
+                          className={field.value?.includes(option.id) ? "bg-blue-50 text-blue-700" : ""}
+                        >
+                          <div className="flex items-center space-x-2">
+                            <div
+                              className={`w-4 h-4 border rounded ${field.value?.includes(option.id) ? "bg-blue-600 border-blue-600" : "border-gray-300"}`}
+                            >
+                              {field.value?.includes(option.id) && (
+                                <svg className="w-3 h-3 text-white ml-0.5 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                  <path
+                                    fillRule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clipRule="evenodd"
+                                  />
+                                </svg>
+                              )}
+                            </div>
+                            <span>{option.label}</span>
+                          </div>
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  {field.value && field.value.length > 0 && (
+                    <div className="text-sm text-blue-600 bg-blue-50 p-2 rounded border mt-2">
+                      <strong>Selected:</strong>{" "}
+                      {field.value
+                        .map((id) => craftCulturalOptions.find((option) => option.id === id)?.label)
+                        .join(", ")}
+                    </div>
+                  )}
+                  <FormMessage className="text-xs" />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="tourismRetreats"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-sm text-gray-600">Tourism & Retreats</FormLabel>
+                  <Select
+                    onValueChange={(value) => {
+                      const currentValues: string[] = field.value || [];
+                      if (currentValues.includes(value)) {
+                        field.onChange(currentValues.filter((v) => v !== value));
+                      } else {
+                        field.onChange([...currentValues, value]);
+                      }
+                    }}
+                  >
+                    <FormControl>
+                      <SelectTrigger className="h-10">
+                        <SelectValue
+                          placeholder={
+                            field.value && field.value.length > 0
+                              ? `${field.value.length} option${field.value.length > 1 ? "s" : ""} selected`
+                              : "Select"
+                          }
+                        />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      {tourismRetreatOptions.map((option) => (
+                        <SelectItem
+                          key={option.id}
+                          value={option.id}
+                          className={field.value?.includes(option.id) ? "bg-blue-50 text-blue-700" : ""}
+                        >
+                          <div className="flex items-center space-x-2">
+                            <div
+                              className={`w-4 h-4 border rounded ${field.value?.includes(option.id) ? "bg-blue-600 border-blue-600" : "border-gray-300"}`}
+                            >
+                              {field.value?.includes(option.id) && (
+                                <svg className="w-3 h-3 text-white ml-0.5 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                  <path
+                                    fillRule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clipRule="evenodd"
+                                  />
+                                </svg>
+                              )}
+                            </div>
+                            <span>{option.label}</span>
+                          </div>
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  {field.value && field.value.length > 0 && (
+                    <div className="text-sm text-blue-600 bg-blue-50 p-2 rounded border mt-2">
+                      <strong>Selected:</strong>{" "}
+                      {field.value
+                        .map((id) => tourismRetreatOptions.find((option) => option.id === id)?.label)
+                        .join(", ")}
+                    </div>
+                  )}
+                  <FormMessage className="text-xs" />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="supportServices"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-sm text-gray-600">Support Services</FormLabel>
+                  <Select
+                    onValueChange={(value) => {
+                      const currentValues: string[] = field.value || [];
+                      if (currentValues.includes(value)) {
+                        field.onChange(currentValues.filter((v) => v !== value));
+                      } else {
+                        field.onChange([...currentValues, value]);
+                      }
+                    }}
+                  >
+                    <FormControl>
+                      <SelectTrigger className="h-10">
+                        <SelectValue
+                          placeholder={
+                            field.value && field.value.length > 0
+                              ? `${field.value.length} option${field.value.length > 1 ? "s" : ""} selected`
+                              : "Select"
+                          }
+                        />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      {supportServiceOptions.map((option) => (
+                        <SelectItem
+                          key={option.id}
+                          value={option.id}
+                          className={field.value?.includes(option.id) ? "bg-blue-50 text-blue-700" : ""}
+                        >
+                          <div className="flex items-center space-x-2">
+                            <div
+                              className={`w-4 h-4 border rounded ${field.value?.includes(option.id) ? "bg-blue-600 border-blue-600" : "border-gray-300"}`}
+                            >
+                              {field.value?.includes(option.id) && (
+                                <svg className="w-3 h-3 text-white ml-0.5 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                  <path
+                                    fillRule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clipRule="evenodd"
+                                  />
+                                </svg>
+                              )}
+                            </div>
+                            <span>{option.label}</span>
+                          </div>
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  {field.value && field.value.length > 0 && (
+                    <div className="text-sm text-blue-600 bg-blue-50 p-2 rounded border mt-2">
+                      <strong>Selected:</strong>{" "}
+                      {field.value
+                        .map((id) => supportServiceOptions.find((option) => option.id === id)?.label)
+                        .join(", ")}
+                    </div>
+                  )}
                   <FormMessage className="text-xs" />
                 </FormItem>
               )}
@@ -116,33 +425,19 @@ export const PlannerForm = () => {
 
           <FormField
             control={form.control}
-            name="travelDates"
+            name="focusAreas"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-sm">Travel Dates</FormLabel>
-                <FormControl>
-                  <Input type="date" className="h-10" {...field} />
-                </FormControl>
-                <FormMessage className="text-xs" />
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name="interests"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel className="text-sm">Interests</FormLabel>
+                <FormLabel className="text-sm text-gray-600">Add Focus Areas</FormLabel>
                 <FormControl>
                   <div className="grid grid-cols-2 gap-2">
-                    {interestOptions.map((interest) => (
-                      <div key={interest} className="flex items-center space-x-2">
+                    {focusAreaOptions.map((focusArea) => (
+                      <div key={focusArea} className="flex items-center space-x-2">
                         <input
                           type="checkbox"
-                          id={interest}
-                          value={interest}
-                          checked={field.value?.includes(interest)}
+                          id={focusArea}
+                          value={focusArea}
+                          checked={field.value?.includes(focusArea)}
                           onChange={(e) => {
                             const value = e.target.value;
                             field.onChange(
@@ -153,8 +448,8 @@ export const PlannerForm = () => {
                           }}
                           className="h-4 w-4"
                         />
-                        <label htmlFor={interest} className="text-sm">
-                          {interest}
+                        <label htmlFor={focusArea} className="text-sm text-gray-600">
+                          {focusArea}
                         </label>
                       </div>
                     ))}
@@ -165,8 +460,33 @@ export const PlannerForm = () => {
             )}
           />
 
+          <FormField
+            control={form.control}
+            name="stayType"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-sm text-gray-600">Stay Type</FormLabel>
+                <Select onValueChange={field.onChange} defaultValue={field.value}>
+                  <FormControl>
+                    <SelectTrigger className="h-10">
+                      <SelectValue placeholder="Select" />
+                    </SelectTrigger>
+                  </FormControl>
+                  <SelectContent>
+                    <SelectItem value="heritage">Heritage</SelectItem>
+                    <SelectItem value="eco">Eco</SelectItem>
+                    <SelectItem value="houseboat">Houseboat</SelectItem>
+                    <SelectItem value="boutique">Boutique</SelectItem>
+                    <SelectItem value="homestay">Homestay</SelectItem>
+                  </SelectContent>
+                </Select>
+                <FormMessage className="text-xs" />
+              </FormItem>
+            )}
+          />
+
           <Button type="submit" className="w-full mt-2 h-10">
-            Get Itinerary
+            CHECK ITINERARY
           </Button>
         </form>
       </Form>

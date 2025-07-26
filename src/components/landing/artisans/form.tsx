@@ -361,14 +361,14 @@ export const ArtisanForm = () => {
               name="experienceGoals"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-gray-600">Experience Goals</FormLabel>
+                  <FormLabel className="text-gray-600">Goals</FormLabel>
                   <Select
                     onValueChange={field.onChange}
                     defaultValue={field.value}
                   >
                     <FormControl>
                       <SelectTrigger>
-                        <SelectValue placeholder="– Select Experience Goal –" />
+                        <SelectValue placeholder="– Select Goal –" />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>

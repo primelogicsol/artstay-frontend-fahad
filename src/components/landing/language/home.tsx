@@ -12,7 +12,7 @@ export const LanguageLanding = () => {
         <LanguageForm />
         <div className="col-span-2 grid place-content-end gap-3 md:gap-3 lg:col-span-1">
           <h2 className="font-heading text-2xl md:text-4xl font-extrabold text-secondary">
-            Language Services – Kashmiri Clarity, Global Connection
+            ArtStay Language Services – Kashmiri Clarity, Global Connection
           </h2>
           <h3 className="font-heading text-lg md:text-xl font-bold">
             Bridge the language gap during your Kashmir visit
@@ -26,13 +26,12 @@ export const LanguageLanding = () => {
           </p>
           <p>We offer tour interpretation, craft demo facilitation, business/legal translation, and emergency language assistance.
 
-Languages include: Kashmiri, Urdu, and Hindi. 
-</p>
-          <p>We also support global languages including:
+Languages include: Kashmiri, Urdu, and Hindi. We also support global languages including:
 English, French, Spanish, German, Arabic, Thai, Italian, Russian and Vietnamese.
 
 Our professionals are trained in linguistic accuracy, cultural etiquette, and craft-related communication, ensuring every word reflects meaning and mutual respect.
 </p>
+<p>Join interactive Kashmiri language workshops to deepen cultural understanding. Learn greetings and phrases with native speakers, enhancing your valley experience.</p>
 <p>Kashmir Language Services connects the world to the Valley <br /> Through understanding that goes beyond translation.</p>
         </div>
         <div className="col-span-2 grid gap-6 md:gap-8">

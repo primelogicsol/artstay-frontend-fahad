@@ -33,9 +33,10 @@ const links = [
   { href: "/safari", title: "Craft Safari" },
   { href: "/fair", title: "Craft Fair" },
   { href: "/shop", title: "Craft Store" },
+  { href: "#", title: "Kashmir Tour" },
   { href: "/eco-retreat", title: "Eco Retreat" },
   { href: "/dining", title: "Dining Voyage" },
-  { href: "/eco-transit", title: "Eco Transit" }, // fahad
+  { href: "/eco-transit", title: "Eco Transit" }, 
   { href: "/travel", title: "Travel Planner" },
   { href: "/documentary", title: "Craft Documenter" },
   { href: "/language", title: "Language Services" },

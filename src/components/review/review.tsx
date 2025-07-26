@@ -1,5 +1,4 @@
 "use client"
-
 import { useState, useEffect, useCallback } from "react"
 
 const Review = () => {
@@ -36,7 +35,7 @@ const Review = () => {
       name: "David Rodriguez",
       location: "Barcelona, Spain",
       rating: 5,
-      text: "I&apos;ve traveled extensively, but this craft safari was unique. Learning traditional weaving techniques from master artisans while surrounded by Kashmir's natural beauty was truly special.",
+      text: "I've traveled extensively, but this craft safari was unique. Learning traditional weaving techniques from master artisans while surrounded by Kashmir's natural beauty was truly special.",
       image: "/placeholder.svg?height=60&width=60",
     },
     {
@@ -69,10 +68,10 @@ const Review = () => {
   }, [isAutoPlaying, nextSlide])
 
   const renderStars = (rating: number) => {
-    return Array.from({length: 5}).map((_, i) => (
+    return Array.from({ length: 5 }).map((_, i) => (
       <svg
         key={i}
-        className={`w-4 h-4 ${i < rating ? "text-yellow-400" : "text-gray-300"}`}
+        className={`w-3 h-3 sm:w-4 sm:h-4 ${i < rating ? "text-yellow-400" : "text-gray-300"}`}
         fill="currentColor"
         viewBox="0 0 20 20"
       >
@@ -82,20 +81,24 @@ const Review = () => {
   }
 
   return (
-    <section style={{ backgroundColor: 'rgb(245,251,255)' }} className="py-16">
-      <div className="container mx-auto px-4">
+    <section style={{ backgroundColor: "rgb(245,251,255)" }} className="py-8 sm:py-12 md:py-16">
+      <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-4">
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="font-heading text-2xl md:text-4xl font-extrabold" style={{ color: 'rgb(0,83,128)' }} >
+        <div className="text-center mb-8 sm:mb-10 md:mb-12">
+          <h2
+            className="font-heading text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold mb-3 sm:mb-4"
+            style={{ color: "rgb(0,83,128)" }}
+          >
             Their Journey, Their Words
           </h2>
-          <p className="font-text text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
-            Every traveler carries home a story, hear how they connected with Kashmir’s soul through its crafts, people, and places.
+          <p className="font-text text-sm sm:text-base md:text-lg text-gray-600 max-w-xl sm:max-w-2xl mx-auto px-2 sm:px-0 leading-relaxed">
+            Every traveler carries home a story, hear how they connected with Kashmir&apos;s soul through its crafts, people,
+            and places.
           </p>
         </div>
 
         {/* Review Slider */}
-        <div className="relative max-w-4xl mx-auto">
+        <div className="relative max-w-xs sm:max-w-2xl md:max-w-3xl lg:max-w-4xl mx-auto">
           <div
             className="overflow-hidden"
             onMouseEnter={() => setIsAutoPlaying(false)}
@@ -106,21 +109,23 @@ const Review = () => {
               style={{ transform: `translateX(-${currentSlide * 100}%)` }}
             >
               {reviews.map((review) => (
-                <div key={review.id} className="w-full flex-shrink-0 px-4">
-                  <div className="bg-white rounded-lg shadow-lg p-8 hover:bg-[#0085CC]/5 mx-auto max-w-3xl border border-blue-800 border-dotted">
-                    <div className="flex items-center mb-6">
-                      {/* <img
-                        src={review.image ||5"/placeholder.svg"}
-                        alt={review.name}
-                        className="w-12 h-12 rounded-full object-cover mr-4"
-                      /> */}
-                      <div>
-                        <h4 className="font-heading text-base md:text-xl font-bold" style={{ color: 'rgb(49,165,221)' }}>{review.name}</h4>
-                        <p className="font-text text-sm" style={{ color: 'rgb(49,165,221)' }}>{review.location}</p>
+                <div key={review.id} className="w-full flex-shrink-0 px-2 sm:px-3 md:px-4">
+                  <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6 md:p-8 hover:bg-[#0085CC]/5 mx-auto max-w-full sm:max-w-2xl md:max-w-3xl border border-blue-800 border-dotted">
+                    <div className="flex items-start sm:items-center mb-4 sm:mb-6 flex-col sm:flex-row">
+                      <div className="flex-1 mb-3 sm:mb-0">
+                        <h4
+                          className="font-heading text-sm sm:text-base md:text-lg lg:text-xl font-bold"
+                          style={{ color: "rgb(49,165,221)" }}
+                        >
+                          {review.name}
+                        </h4>
+                        <p className="font-text text-xs sm:text-sm" style={{ color: "rgb(49,165,221)" }}>
+                          {review.location}
+                        </p>
                       </div>
-                      <div className="ml-auto flex space-x-1">{renderStars(review.rating)}</div>
+                      <div className="flex space-x-1 self-start sm:ml-auto">{renderStars(review.rating)}</div>
                     </div>
-                    <blockquote className="font-text text-base md:text-lg text-gray-700 leading-relaxed">
+                    <blockquote className="font-text text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">
                       &ldquo;{review.text}&rdquo;
                     </blockquote>
                   </div>
@@ -132,51 +137,45 @@ const Review = () => {
           {/* Navigation Arrows */}
           <button
             onClick={prevSlide}
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-[#0085CC] rounded-full p-2 shadow-lg hover:bg-gray-50 transition-colors z-10"
+            className="absolute left-0 sm:-left-2 md:-left-4 top-1/2 transform -translate-y-1/2 -translate-x-2 sm:-translate-x-3 md:-translate-x-4 bg-[#0085CC] rounded-full p-1.5 sm:p-2 shadow-lg hover:bg-gray-50 transition-colors z-10"
             aria-label="Previous review"
           >
-            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg
+              className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
           <button
             onClick={nextSlide}
-            className=" absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-[#0085CC] rounded-full p-2 shadow-lg hover:bg-gray-50 transition-colors z-10"
+            className="absolute right-0 sm:-right-2 md:-right-4 top-1/2 transform -translate-y-1/2 translate-x-2 sm:translate-x-3 md:translate-x-4 bg-[#0085CC] rounded-full p-1.5 sm:p-2 shadow-lg hover:bg-gray-50 transition-colors z-10"
             aria-label="Next review"
           >
-            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg
+              className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </button>
 
           {/* Dots Indicator */}
-          <div className="flex justify-center space-x-2 mt-8">
+          <div className="flex justify-center space-x-1.5 sm:space-x-2 mt-6 sm:mt-8">
             {reviews.map((_, index) => (
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
-                className={`w-3 h-3 rounded-full transition-colors ${
+                className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-colors ${
                   index === currentSlide ? "bg-blue-600" : "bg-gray-300"
                 }`}
                 aria-label={`Go to review ${index + 1}`}
               />
             ))}
-          </div>
-        </div>
-
-        {/* Stats Section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 max-w-3xl mx-auto">
-          <div className="text-center">
-            <div className="font-heading text-2xl md:text-3xl font-extrabold text-blue-600 mb-2" style={{ color: 'rgb(49,165,221)' }}>500+</div>
-            <p className="font-text text-sm md:text-base text-gray-600">Happy Travelers</p>
-          </div>
-          <div className="text-center">
-            <div className="font-heading text-2xl md:text-3xl font-extrabold text-blue-600 mb-2" style={{ color: 'rgb(49,165,221)' }}>4.9</div>
-            <p className="font-text text-sm md:text-base text-gray-600">Average Rating</p>
-          </div>
-          <div className="text-center">
-            <div className="font-heading text-2xl md:text-3xl font-extrabold text-blue-600 mb-2" style={{ color: 'rgb(49,165,221)' }}>50+</div>
-            <p className="font-text text-sm md:text-base text-gray-600">Craft Experiences</p>
           </div>
         </div>
       </div>

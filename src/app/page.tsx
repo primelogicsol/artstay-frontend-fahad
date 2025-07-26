@@ -9,7 +9,7 @@ import { SafariLanding } from "~/components/landing/safari/home";
 import { TourLanding } from "~/components/landing/tour/home";
 import { TransitLanding } from "~/components/landing/transist/home";
 import { DocumentorLanding } from "~/components/landing/craft_documentor/home"
-import Footer from "~/components/footer/footer";
+// import Footer from "~/components/footer/footer";
 import  Reviews from "~/components/review/review";
 import { Banner } from "~/components/banner/banner";
 import  ProjectGlimpse  from "~/components/project_glimpse/glimpse";
@@ -41,7 +41,7 @@ export default function HomePage() {
       </div>
       <PartnershipSection />
       <SupportNetwork />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

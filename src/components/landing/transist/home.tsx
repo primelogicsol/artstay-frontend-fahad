@@ -13,7 +13,7 @@ export const TransitLanding = () => {
         <TransitForm />
         <div className="col-span-2 grid place-content-end gap-3 md:gap-3 lg:col-span-1">
           <h2 className="font-heading text-2xl md:text-4xl font-extrabold text-secondary">
-            Eco Transit – Green Mobility through Kashmiri Landscapes
+            ArtStay Eco Transit – Green Mobility through Kashmiri Landscapes
           </h2>
           <h3 className="font-heading text-lg md:text-xl font-bold">
             Sustainable transportation through Kashmir&apos;s majestic landscapes
@@ -24,6 +24,7 @@ export const TransitLanding = () => {
 
 
           </p>
+          <p>Embark on eco-friendly treks through Kashmir’s alpine meadows, guided by local experts. Cycle along scenic trails near Gulmarg’s snow-capped peaks, or paddle eco-kayaks on serene lakes. Discover hidden waterfalls and organic farms, supporting local livelihoods. Enjoy sunset tours in electric carts, exploring heritage sites with minimal impact. These adventures promote sustainability, connect you with nature, and showcase Kashmir’s untouched beauty. Every journey fosters environmental awareness and preserves the valley’s cultural essence for future generations.</p>
           <p>Each route connects artisan villages, scenic sites, and cultural landmarks while minimizing environmental impact.
 
 Whether gliding on Dal Lake or cycling through saffron fields, your journey supports sustainability and local livelihoods.</p>

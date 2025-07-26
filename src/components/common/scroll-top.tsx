@@ -35,15 +35,15 @@ export const ScrollToTop = () => {
       type="button"
       onClick={scrollToTop}
       className={cn(
-        "fixed bottom-6 right-4 p-3 text-white shadow-lg transition-opacity duration-300 z-[100000]",
+        "fixed bottom-6 right-4 rounded-full bg-gradient-to-r from-primary to-secondary text-white shadow-2xl hover:scale-110 hover:rotate-12 transition-all duration-300 focus:ring-2 focus:ring-white z-[100000]",
         {
           "block": isVisible,
           "hidden": !isVisible,
-        },
+        }
       )}
       aria-label="Scroll to top"
     >
-      <ArrowBigUp className="h-4 w-4" />
+      <ArrowBigUp className="h-6 w-6" />
     </Button>
   );
 };

@@ -13,7 +13,7 @@ export const TourLanding = () => {
         <TourForm />
         <div className="col-span-2 grid place-content-end gap-3 md:gap-3 lg:col-span-1">
           <h2 className="font-heading text-2xl md:text-4xl font-extrabold text-secondary">
-            Kashmir Tour – Experience the Valley’s Living Culture
+            ArtStay Kashmir Tour – Experience the Valley’s Living Culture
           </h2>
           <h3 className="font-heading text-lg md:text-xl font-bold">
             Kashmir has surged to become the most Googled Travel Destination,
@@ -27,6 +27,7 @@ export const TourLanding = () => {
 
 
           </p>
+          <p>Dive into Kashmir’s heritage with hands-on workshops on Pashmina weaving and papier-mâché art. Explore ancient Shikara rides on Dal Lake, learning local folklore from skilled boatmen. Enjoy traditional music and dance performances under starlit skies, reflecting the valley’s soul. Visit historic Mughal gardens with guided tours, uncovering tales of past royalty. These experiences empower local artisans, preserve traditions, and offer an authentic connection to Kashmir’s living culture, making your journey a meaningful celebration of its timeless artistry and natural beauty.</p>
           <p>
 
             Walk through history, dine on wazwan, listen to Sufi echoes, and rest where kings once prayed. Each tour sustains local culture, empowers artisans, and preserves Kashmir’s timeless soul.

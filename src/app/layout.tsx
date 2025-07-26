@@ -8,6 +8,7 @@ import { ScrollToTop } from "~/components/common/scroll-top";
 import { Header } from "~/components/general/header";
 import { Toaster } from "~/components/ui/toaster";
 import Provider from "~/app/provider";
+import Footer from "~/components/footer/footer";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -35,6 +36,7 @@ export default function RootLayout({
         <Provider>
           <Header />
           <main>{children}</main>
+          <Footer />
           <Toaster />
           <ScrollToTop />
         </Provider>
