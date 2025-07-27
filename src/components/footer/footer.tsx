@@ -472,48 +472,50 @@ export default function Footer() {
                 <div className="p-4 rounded-lg bg-gradient-to-br from-[#005380] to-[#0085CC] bg-opacity-20 border border-white border-opacity-20 backdrop-blur-sm hover:bg-opacity-30 hover:scale-105 transition-all duration-300 flex-1">
                   <div className="flex items-center gap-2 mb-3">
                     <DollarSign className="w-4 h-4 text-white" />
+                    <Link href="/footer_pages/affiliate-program">
                     <h4 className="font-bold text-white text-sm">Affiliate Program</h4>
+                    </Link>
                   </div>
                   <div className="space-y-2">
                     <Link
-                      href="/affiliate-overview"
+                      href="/footer_pages/program-overview"
                       className="block text-sm md:text-base text-gray-100 font-medium hover:text-white font-semibold hover:translate-x-2 transition-all duration-300 focus:ring-2 focus:ring-white rounded"
                     >
                       Program Overview
                     </Link>
                     <Link
-                      href="/commission-tiers"
+                      href="/footer_pages/commision-tiers"
                       className="block text-sm md:text-base text-gray-100 font-medium hover:text-white font-semibold hover:translate-x-2 transition-all duration-300 focus:ring-2 focus:ring-white rounded"
                     >
                       Commission Tiers
                     </Link>
                     <Link
-                      href="/tracking-dashboard"
+                      href="/footer_pages/tracking-dashboard"
                       className="block text-sm md:text-base text-gray-100 font-medium hover:text-white font-semibold hover:translate-x-2 transition-all duration-300 focus:ring-2 focus:ring-white rounded"
                     >
                       Tracking & Dashboard
                     </Link>
                     <Link
-                      href="/apply-affiliate"
+                      href="/footer_pages/apply-affiliate"
                       className="block text-sm md:text-base text-gray-100 font-medium hover:text-white font-semibold hover:translate-x-2 transition-all duration-300 focus:ring-2 focus:ring-white rounded"
                     >
                       Apply as Affiliate
                     </Link>
                     
                     <Link
-                      href="/partner-toolkit"
+                      href="/footer_pages/promo-campaigns"
                       className="block text-sm md:text-base text-gray-100 font-medium hover:text-white font-semibold hover:translate-x-2 transition-all duration-300 focus:ring-2 focus:ring-white rounded"
                     >
                       Promo Campaigns
                     </Link>
                     <Link
-                      href="/partner-toolkit"
+                      href="/footer_pages/referral-code"
                       className="block text-sm md:text-base text-gray-100 font-medium hover:text-white font-semibold hover:translate-x-2 transition-all duration-300 focus:ring-2 focus:ring-white rounded"
                     >
                       Referral Code 
                     </Link>
                     <Link
-                      href="/partner-toolkit"
+                      href="/footer_pages/affiliate-support"
                       className="block text-sm md:text-base text-gray-100 font-medium hover:text-white font-semibold hover:translate-x-2 transition-all duration-300 focus:ring-2 focus:ring-white rounded"
                     >
                       Affiliate Support
