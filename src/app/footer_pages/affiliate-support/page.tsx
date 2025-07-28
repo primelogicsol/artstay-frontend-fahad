@@ -1,4 +1,4 @@
-import PageLayout from "~/components/footer_components/ui/page-layout"
+
 import HeroSection from "~/components/footer_components/ui/hero-section"
 import ContentSection from "~/components/footer_components/ui/content-section"
 import FeatureGrid from "~/components/footer_components/affiliate/feature-grid"
@@ -62,18 +62,18 @@ export default function AffiliateSupportPage() {
   ]
 
   return (
-    <PageLayout>
+    <>
       <HeroSection
         title="We've Got Your Back"
         subtitle="Affiliate Support"
         description="Our dedicated support team is committed to your success. From onboarding to ongoing optimization, we provide comprehensive support to help you maximize your affiliate earnings and impact."
-        backgroundImage="/placeholder.svg?height=800&width=1200"
+        backgroundImage="/images/kashmir.jpg"
       />
 
       <ContentSection background="white">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Support Includes</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#005380] mb-6">Support Includes</h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto italic">
             Comprehensive support designed to ensure your success as an ArtStay affiliate
           </p>
         </div>
@@ -83,8 +83,8 @@ export default function AffiliateSupportPage() {
 
       <ContentSection background="gradient">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Multiple Support Channels</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#005380] mb-6">Multiple Support Channels</h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto italic">
             Choose the support method that works best for your needs and schedule
           </p>
         </div>
@@ -115,9 +115,9 @@ export default function AffiliateSupportPage() {
 
       <ContentSection background="white">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Resource Library</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Access our comprehensive collection of resources designed to support your affiliate journey
+          <h2 className="text-3xl md:text-4xl font-bold text-[#005380] mb-6">Resource Library</h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto italic">
+            Access our comprehensive collection designed to support your affiliate journey
           </p>
         </div>
 
@@ -140,7 +140,7 @@ export default function AffiliateSupportPage() {
 
         <div className="max-w-4xl mx-auto">
           <div className="bg-gradient-to-br from-[#005380]/5 to-[#0085CC]/10 rounded-3xl p-12 border border-[#0085CC]/20 text-center">
-            <h3 className="text-2xl font-bold text-gray-800 mb-6">Community Benefits</h3>
+            <h3 className="text-2xl font-bold text-[#005380] mb-6">Community Benefits</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="bg-white rounded-xl p-6 shadow-lg">
                 <MessageCircle className="w-12 h-12 text-[#0085CC] mx-auto mb-4" />
@@ -150,7 +150,7 @@ export default function AffiliateSupportPage() {
               <div className="bg-white rounded-xl p-6 shadow-lg">
                 <Users className="w-12 h-12 text-[#0085CC] mx-auto mb-4" />
                 <h4 className="text-lg font-semibold text-gray-800 mb-3">Slack Workspace</h4>
-                <p className="text-gray-600 text-sm">Organized discussions, resource sharing, and networking</p>
+                <p className="text-gray-600 text-sm">Organized discussions, resource, and networking</p>
               </div>
             </div>
           </div>
@@ -161,8 +161,8 @@ export default function AffiliateSupportPage() {
         <div className="max-w-4xl mx-auto text-center">
           <div className="bg-white rounded-3xl p-12 shadow-2xl">
             <Mail className="w-16 h-16 text-[#0085CC] mx-auto mb-6" />
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Need Help?</h2>
-            <p className="text-xl text-gray-600 mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#005380] mb-6">Need Help?</h2>
+            <p className="text-xl text-gray-600 mb-8 italic">
               Our affiliate support team is here to help you succeed. Don&apos;t hesitate to reach out with any questions or
               concerns.
             </p>
@@ -174,7 +174,7 @@ export default function AffiliateSupportPage() {
                 Email Support Team
               </a>
               <a
-                href="/apply-affiliate"
+                href="/footer_pages/apply-affiliate"
                 className="inline-flex items-center justify-center px-8 py-4 bg-white border-2 border-[#0085CC] text-[#0085CC] font-semibold rounded-xl hover:bg-[#0085CC] hover:text-white transition-all duration-300"
               >
                 Join Our Program
@@ -186,6 +186,6 @@ export default function AffiliateSupportPage() {
           </div>
         </div>
       </ContentSection>
-    </PageLayout>
+    </>
   )
 }

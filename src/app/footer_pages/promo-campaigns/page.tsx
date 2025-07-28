@@ -1,8 +1,8 @@
-import PageLayout from "~/components/footer_components/ui/page-layout"
+
 import HeroSection from "~/components/footer_components/ui/hero-section"
 import ContentSection from "~/components/footer_components/ui/content-section"
 import FeatureGrid from "~/components/footer_components/affiliate/feature-grid"
-import { ImageIcon, Mail, Share2, BookOpen} from "lucide-react"
+import { ImageIcon, Mail, Share2, BookOpen, Award, Users, Palette } from "lucide-react"
 
 export default function PromoCampaignsPage() {
   const resources = [
@@ -42,33 +42,33 @@ export default function PromoCampaignsPage() {
     {
       title: "Highlight GI-certified Products",
       description: "Focus on Geographical Indication certified products to emphasize authenticity and quality",
-      icon: "🏆",
+      icon: <Award className="w-8 h-8 text-[#005380]" />,
     },
     {
       title: "Share Real Artisan Stories",
       description: "Use our artisan story capsules to create emotional connections with your audience",
-      icon: "👥",
+      icon: <Users className="w-8 h-8 text-[#005380]" />,
     },
     {
       title: "Blend Tourism & Handicrafts",
       description: "Combine travel experiences with craft shopping for comprehensive storytelling",
-      icon: "🎨",
+      icon: <Palette className="w-8 h-8 text-[#005380]" />,
     },
   ]
 
   return (
-    <PageLayout>
+    <>
       <HeroSection
         title="Marketing That Converts"
         subtitle="Promotional Resources"
         description="Access our comprehensive library of marketing materials designed to help you promote Kashmiri culture effectively. From professional banners to authentic artisan stories, we provide everything you need to succeed."
-        backgroundImage="/placeholder.svg?height=800&width=1200"
+        backgroundImage="/images/kashmir.jpg"
       />
 
       <ContentSection background="white">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Available Resources</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#005380] mb-6">Available Resources</h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto italic">
             Professional marketing materials created by our design team to maximize your conversion rates
           </p>
         </div>
@@ -78,8 +78,8 @@ export default function PromoCampaignsPage() {
 
       <ContentSection background="gradient">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Tips for Success</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#005380] mb-6">Tips for Success</h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto italic">
             Proven strategies to maximize your affiliate earnings and create meaningful connections
           </p>
         </div>
@@ -104,8 +104,8 @@ export default function PromoCampaignsPage() {
         <div className="max-w-6xl mx-auto">
           <div className="bg-gradient-to-br from-[#005380]/5 to-[#0085CC]/10 rounded-3xl p-12 border border-[#0085CC]/20">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Resource Library Preview</h2>
-              <p className="text-xl text-gray-600">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#005380] mb-6">Resource Library Preview</h2>
+              <p className="text-xl text-gray-600 italic">
                 Get a glimpse of the professional marketing materials available to our affiliates
               </p>
             </div>
@@ -151,7 +151,7 @@ export default function PromoCampaignsPage() {
       <ContentSection background="gradient">
         <div className="max-w-4xl mx-auto text-center">
           <div className="bg-white rounded-3xl p-12 shadow-2xl">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Ready to Start Promoting?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#005380] mb-6">Ready to Start Promoting?</h2>
             <p className="text-xl text-gray-600 mb-8">
               Get instant access to our complete marketing resource library and start creating compelling campaigns
             </p>
@@ -172,6 +172,6 @@ export default function PromoCampaignsPage() {
           </div>
         </div>
       </ContentSection>
-    </PageLayout>
+    </>
   )
 }

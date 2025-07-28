@@ -1,4 +1,4 @@
-import PageLayout from "~/components/footer_components/ui/page-layout"
+
 import HeroSection from "~/components/footer_components/ui/hero-section"
 import ContentSection from "~/components/footer_components/ui/content-section"
 import ApplicationForm from "~/components/footer_components/affiliate/application-form"
@@ -42,18 +42,18 @@ export default function ApplyAffiliatePage() {
   ]
 
   return (
-    <PageLayout>
+    <>
       <HeroSection
         title="Start in Minutes"
         subtitle="Affiliate Application"
         description="Join our community of cultural ambassadors and start earning while promoting authentic Kashmiri heritage. Our streamlined application process gets you started quickly with full support."
-        backgroundImage="/placeholder.svg?height=800&width=1200"
+        backgroundImage="/images/kashmir.jpg"
       />
 
       <ContentSection background="white">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Simple Application Process</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#005380] mb-6">Simple Application Process</h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto italic">
             Get started with our affiliate program in just four easy steps
           </p>
         </div>
@@ -79,7 +79,7 @@ export default function ApplyAffiliatePage() {
       <ContentSection background="gradient">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-8">Who Can Apply?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#005380] mb-8">Who Can Apply?</h2>
             <div className="space-y-6">
               <p className="text-lg text-gray-600 leading-relaxed">
                 We welcome applications from passionate individuals and organizations who share our commitment to
@@ -106,7 +106,7 @@ export default function ApplyAffiliatePage() {
       <ContentSection background="white">
         <div className="max-w-4xl mx-auto text-center">
           <div className="bg-gradient-to-br from-[#005380]/5 to-[#0085CC]/10 rounded-3xl p-12 border border-[#0085CC]/20">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Application Benefits</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#005380] mb-6">Application Benefits</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-br from-[#005380] to-[#0085CC] rounded-2xl flex items-center justify-center mx-auto mb-4">
@@ -120,7 +120,7 @@ export default function ApplyAffiliatePage() {
                   <CheckCircle className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">High Approval Rate</h3>
-                <p className="text-gray-600 text-sm">95% of quality applications get approved</p>
+                <p className="text-gray-600 text-sm">95% applications get approved</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-br from-[#005380] to-[#0085CC] rounded-2xl flex items-center justify-center mx-auto mb-4">
@@ -133,6 +133,6 @@ export default function ApplyAffiliatePage() {
           </div>
         </div>
       </ContentSection>
-    </PageLayout>
+    </>
   )
 }

@@ -1,4 +1,4 @@
-import PageLayout from "~/components/footer_components/ui/page-layout"
+
 import HeroSection from "~/components/footer_components/ui/hero-section"
 import ContentSection from "~/components/footer_components/ui/content-section"
 import { QrCode, Link, Globe, Users, Target, Infinity } from "lucide-react"
@@ -46,18 +46,18 @@ export default function ReferralCodePage() {
   ]
 
   return (
-    <PageLayout>
+    <>
       <HeroSection
         title="Your Code. Your Credibility."
         subtitle="Referral System"
         description="Each affiliate receives a unique Referral Code that becomes your permanent link to the ArtStay ecosystem. Use it across all platforms and campaigns to ensure proper attribution and maximize your earnings."
-        backgroundImage="/placeholder.svg?height=800&width=1200"
+        backgroundImage="/images/kashmir.jpg"
       />
 
       <ContentSection background="white">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">How to Use Your Code</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#005380] mb-6 ">How to Use Your Code</h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto italic">
             Your referral code works across all ArtStay platforms and promotional channels
           </p>
         </div>
@@ -81,8 +81,8 @@ export default function ReferralCodePage() {
         <div className="max-w-4xl mx-auto">
           <div className="bg-gradient-to-br from-[#005380]/5 to-[#0085CC]/10 rounded-3xl p-8 border border-[#0085CC]/20">
             <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">Your Unique Code Example</h3>
-              <p className="text-gray-600">Here&apos;s how your personalized referral code will look</p>
+              <h3 className="text-2xl font-bold text-[#005380] mb-4 ">Your Unique Code Example</h3>
+              <p className="text-gray-600 italic">Here&apos;s how your personalized referral code will look</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -112,8 +112,8 @@ export default function ReferralCodePage() {
 
       <ContentSection background="gradient">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Code Benefits</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#005380] mb-6">Code Benefits</h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto italic">
             Your referral code comes with powerful features designed to maximize your success
           </p>
         </div>
@@ -165,7 +165,7 @@ export default function ReferralCodePage() {
               </div>
             </div>
             <a
-              href="/apply-affiliate"
+              href="/footer_pages/apply-affiliate"
               className="inline-flex items-center justify-center px-8 py-4 bg-white text-[#005380] font-semibold rounded-xl hover:scale-105 transition-all duration-300 shadow-lg"
             >
               Get Your Unique Code
@@ -173,6 +173,6 @@ export default function ReferralCodePage() {
           </div>
         </div>
       </ContentSection>
-    </PageLayout>
+    </>
   )
 }

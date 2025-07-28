@@ -153,41 +153,43 @@ export default function Footer() {
                 <div className="p-4 rounded-lg bg-gradient-to-br from-[#005380] to-[#0085CC] bg-opacity-30 border border-[#0085CC] border-opacity-40 backdrop-blur-sm hover:bg-opacity-40 hover:scale-105 transition-all duration-300 flex-1">
                   <div className="flex items-center gap-2 mb-3">
                     <HelpCircle className="w-4 h-4 text-white" />
+                    <Link href="/footer_pages/help-support">
                     <h4 className="font-bold text-white text-sm">Help & Support</h4>
+                    </Link>
                   </div>
                   <div className="space-y-2">
                     <Link
-                      href="#"
+                      href="/footer_pages/refund-policy"
                       className="block text-sm md:text-base text-gray-100 font-medium hover:text-white font-semibold hover:translate-x-2 transition-all duration-300 focus:ring-2 focus:ring-white rounded"
                     >
                       Refund Policy
                     </Link>
                     <Link
-                      href="#"
+                      href="/footer_pages/privacy-policy"
                       className="block text-sm md:text-base text-gray-100 font-medium hover:text-white font-semibold hover:translate-x-2 transition-all duration-300 focus:ring-2 focus:ring-white rounded"
                     >
                       Privacy Policy
                     </Link>
                     <Link
-                      href="#"
+                      href="/footer_pages/cookies"
                       className="block text-sm md:text-base text-gray-100 font-medium hover:text-white font-semibold hover:translate-x-2 transition-all duration-300 focus:ring-2 focus:ring-white rounded"
                     >
                       Cookies
                     </Link>
                     <Link
-                      href="/faqs"
+                      href="/footer_pages/faqs"
                       className="block text-sm md:text-base text-gray-100 font-medium hover:text-white font-semibold hover:translate-x-2 transition-all duration-300 focus:ring-2 focus:ring-white rounded"
                     >
                       FAQs
                     </Link>
                     <Link
-                      href="/accessibility"
+                      href="/footer_pages/accessibility-support"
                       className="block text-sm md:text-base text-gray-100 font-medium hover:text-white font-semibold hover:translate-x-2 transition-all duration-300 focus:ring-2 focus:ring-white rounded"
                     >
                       Accessibility Support
                     </Link>
                     <Link
-                      href="/report-concern"
+                      href="/footer_pages/report-concern"
                       className="block text-sm md:text-base text-gray-100 font-medium hover:text-white font-semibold hover:translate-x-2 transition-all duration-300 focus:ring-2 focus:ring-white rounded"
                     >
                       Report a Concern
