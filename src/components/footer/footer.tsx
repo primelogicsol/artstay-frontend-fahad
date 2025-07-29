@@ -407,6 +407,7 @@ export default function Footer() {
 
                 {/* Vendor Support Sub-card */}
                 <div>
+                  
                   <h3 className="text-xl font-bold m-6 text-white group-hover:text-white transition-colors duration-300">
                 Vendor Services
               </h3>
@@ -414,35 +415,37 @@ export default function Footer() {
                 <div className="p-4 rounded-lg bg-gradient-to-br from-[#005380] to-[#0085CC] bg-opacity-30 border border-[#0085CC] border-opacity-40 backdrop-blur-sm hover:bg-opacity-40 hover:scale-105 transition-all duration-300 flex-1">
                   <div className="flex items-center gap-2 mb-3">
                     <Users className="w-4 h-4 text-white" />
+                    <Link href="/footer_pages/vendor-support">
                     <h4 className="font-bold text-white text-sm">Vendor Support</h4>
+                    </Link>
                   </div>
                   <div className="space-y-2">
                     <Link
-                      href="/register-business"
+                      href="/footer_pages/register-business"
                       className="block text-sm md:text-base text-gray-100 font-medium hover:text-white font-semibold hover:translate-x-2 transition-all duration-300 focus:ring-2 focus:ring-white rounded"
                     >
                       Register Your Business
                     </Link>
                     <Link
-                      href="/vendor-login"
+                      href="/footer_pages/vendor-login"
                       className="block text-sm md:text-base text-gray-100 font-medium hover:text-white font-semibold hover:translate-x-2 transition-all duration-300 focus:ring-2 focus:ring-white rounded"
                     >
                       Vendor Login
                     </Link>
                     <Link
-                      href="/training-portal"
+                      href="/footer_pages/vendor-dashboard"
                       className="block text-sm md:text-base text-gray-100 font-medium hover:text-white font-semibold hover:translate-x-2 transition-all duration-300 focus:ring-2 focus:ring-white rounded"
                     >
                       Vendor Dashboard
                     </Link>
                     <Link
-                      href="/sustainability-guidelines"
+                      href="/footer_pages/sustainability-ethics"
                       className="block text-sm md:text-base text-gray-100 font-medium hover:text-white font-semibold hover:translate-x-2 transition-all duration-300 focus:ring-2 focus:ring-white rounded"
                     >
                       Sustainability & Ethics 
                     </Link>
                     <Link
-                      href="/export-certification"
+                      href="/footer_pages/partnership-growth"
                       className="block text-sm md:text-base text-gray-100 font-medium hover:text-white font-semibold hover:translate-x-2 transition-all duration-300 focus:ring-2 focus:ring-white rounded"
                     >
                       Partnership Growth
@@ -663,8 +666,8 @@ export default function Footer() {
 
         {/* Legal Links */}
         <div className="flex flex-wrap justify-center gap-4 mb-8 p-6 rounded-xl backdrop-blur-lg bg-white bg-opacity-5 border border-white border-opacity-10">
-          <div className="flex flex-wrap justify-center items-center gap-2 text-2xl text-white mb-4">
-            <span>Website Developed & Maintain By Prime Logics Solutions <span className="hidden sm:inline">•</span> USA. ( The In-House Software Development & Digital Marketing Company of De Koshur Crafts USA )</span>
+          <div className="flex flex-wrap text-center items-center gap-2 text-xl text-white-500 mb-4">
+            <span>Website Developed & Maintain By Prime Logics Solutions <span className="hidden sm:inline">•</span> USA <br /> <i>( The In-House Software Development & Digital Marketing Company of De Koshur Crafts USA )</i></span>
             
           
           </div>

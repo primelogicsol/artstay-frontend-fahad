@@ -13,7 +13,7 @@ export default function AffiliateProgramPage() {
       href: "/program-overview",
     },
     {
-      title: "Commission Model",
+      title: "Commission Model", 
       description: "Understand our transparent tier-based commission structure",
       href: "/commission-tiers",
     },
@@ -25,12 +25,17 @@ export default function AffiliateProgramPage() {
     {
       title: "Application Process",
       description: "Start your affiliate journey in just a few simple steps",
-      href: "/apply-affiliate",
+      href: "/apply-affiliate", 
     },
     {
       title: "Promo Tools & Support",
       description: "Get access to marketing resources and dedicated support",
       href: "/promo-campaigns",
+    },
+    {
+      title: "Success Stories",
+      description: "Read inspiring stories from our successful affiliates",
+      href: "/success-stories",
     },
   ]
 
