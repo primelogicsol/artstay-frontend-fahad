@@ -9,7 +9,7 @@ export default function SustainabilityEthicsPage() {
         title="Tradition. Transparency. Trust."
         subtitle="Sustainability & Ethics"
         description="At ArtStay, we believe that preserving Kashmir's craft heritage goes hand in hand with ethical business practices. Our comprehensive ethics framework ensures that every transaction supports sustainable livelihoods and environmental responsibility."
-        backgroundImage="/placeholder.svg?height=800&width=1200"
+        backgroundImage="/images/kashmir.jpg"
         ctaText="View Ethics Charter"
         ctaLink="#ethics-charter"
       />

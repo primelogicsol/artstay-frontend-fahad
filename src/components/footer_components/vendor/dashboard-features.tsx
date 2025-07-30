@@ -69,7 +69,7 @@ export default function DashboardFeatures() {
     <div className="space-y-12">
       {/* Main Features */}
       <div>
-        <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center">Complete Dashboard Features</h3>
+        <h3 className="text-2xl font-bold text-[#005380] mb-8 text-center">Complete Dashboard Features</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {dashboardFeatures.map((feature, index) => (
             <div
@@ -101,7 +101,7 @@ export default function DashboardFeatures() {
 
       {/* Growth Tools */}
       <div className="bg-gradient-to-br from-[#005380]/5 to-[#0085CC]/10 rounded-2xl p-8">
-        <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center">Tools for Growth</h3>
+        <h3 className="text-2xl font-bold text-[#005380] mb-8 text-center">Tools for Growth</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {growthTools.map((tool, _index) => (
             <div
@@ -120,20 +120,20 @@ export default function DashboardFeatures() {
 
       {/* Call to Action */}
       <div className="text-center bg-white p-8 rounded-xl shadow-lg border border-gray-200">
-        <h3 className="text-xl font-bold text-gray-800 mb-4">Ready to Access Your Dashboard?</h3>
-        <p className="text-gray-600 mb-6">
+        <h3 className="text-xl font-bold text-[#005380] mb-4">Ready to Access Your Dashboard?</h3>
+        <p className="text-gray-600 mb-6 italic">
           Log in to your vendor portal and start managing your craft business with powerful tools designed for artisans.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="/vendor-login"
+            href="/footer_pages/vendor-login"
             className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-[#005380] to-[#0085CC] text-white rounded-lg hover:shadow-lg transition-all duration-300"
           >
             <span>Access Dashboard</span>
             <Package className="w-5 h-5" />
           </a>
           <a
-            href="/register-business"
+            href="/footer_pages/register-business"
             className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-[#0085CC] text-[#0085CC] rounded-lg hover:bg-[#0085CC]/5 transition-all duration-300"
           >
             <span>Register First</span>

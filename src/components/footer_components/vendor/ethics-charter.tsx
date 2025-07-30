@@ -62,7 +62,7 @@ export default function EthicsCharter() {
     <div className="space-y-12">
       {/* Ethics Expectations */}
       <div>
-        <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center">Our Ethical Expectations</h3>
+        <h3 className="text-2xl font-bold text-[#005380] mb-8 text-center">Our Ethical Expectations</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {ethicsPoints.map((point) => (
             <div
@@ -91,16 +91,16 @@ export default function EthicsCharter() {
       <div className="bg-gradient-to-br from-[#005380]/10 to-[#0085CC]/15 rounded-2xl p-8 text-center">
         <div className="max-w-3xl mx-auto">
           <Heart className="w-12 h-12 text-[#005380] mx-auto mb-6" />
-          <blockquote className="text-2xl md:text-3xl font-bold text-gray-800 mb-4 leading-relaxed">
+          <blockquote className="text-2xl md:text-3xl font-bold text-gray-800 mb-4 leading-relaxed italic">
             &quot;Our crafts are sacred. Selling them should be too.&quot;
           </blockquote>
-          <cite className="text-lg text-gray-600 font-medium">— Artisan Ethics Charter</cite>
+          <cite className="text-lg text-[#0085CC] font-medium">— Artisan Ethics Charter</cite>
         </div>
       </div>
 
       {/* Support Services */}
       <div>
-        <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center">Support We Offer</h3>
+        <h3 className="text-2xl font-bold text-[#005380] mb-8 text-center">Support We Offer</h3>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {supportServices.map((service) => (
             <div
@@ -127,7 +127,7 @@ export default function EthicsCharter() {
       <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-200">
         <div className="text-center mb-6">
           <Shield className="w-16 h-16 text-[#005380] mx-auto mb-4" />
-          <h3 className="text-xl font-bold text-gray-800 mb-2">Compliance & Monitoring</h3>
+          <h3 className="text-xl font-bold text-[#005380] mb-2">Compliance & Monitoring</h3>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
@@ -146,11 +146,11 @@ export default function EthicsCharter() {
         </div>
 
         <div className="mt-6 text-center">
-          <p className="text-gray-600 mb-4">
+          <p className="text-gray-600 mb-4 italic">
             Regular audits and compliance checks ensure all vendors meet our ethical standards
           </p>
           <a
-            href="/ethics-reporting"
+            href="#"
             className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#005380] to-[#0085CC] text-white rounded-lg hover:shadow-lg transition-all duration-300"
           >
             <span>Report Ethics Concern</span>
