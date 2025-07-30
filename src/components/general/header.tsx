@@ -108,13 +108,13 @@ export const Header: FC<HeaderProps> = ({ disabled = false }) => {
       {/* Top Banner - only visible when not scrolled */}
       <div
         className={cn(
-          "hidden gap-6 bg-gradient-to-r from-[#003d5c] to-[#005380] p-6 py-3 text-white lg:flex transition-all duration-500 ease-in-out overflow-hidden",
+          "hidden gap-6 bg-[#0085CC] p-6 py-3 text-white lg:flex transition-all duration-500 ease-in-out overflow-hidden",
           isScrolled ? "max-h-0 opacity-0 py-0" : "max-h-20 opacity-100",
         )}
       >
-        <div className="mx-auto flex w-full max-w-7xl justify-between items-center">
+        <div className="mx-auto flex w-full max-w-7xl justify-center items-center">
           <div className="flex items-center gap-4 font-text">
-            <p className="font-semibold text-sm xl:text-base">
+            <p className="font-semibold text-sm xl:text-base px-2">
               De Koshur Crafts&apos; - Kashmir Craft & Tourism Convergence Marketplace
             </p>
           </div>
