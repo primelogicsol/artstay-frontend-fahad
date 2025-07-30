@@ -139,7 +139,7 @@ export default function PartnershipOpportunities() {
       {/* Call to Action */}
       <div className="text-center bg-gradient-to-r from-[#005380] to-[#0085CC] p-8 rounded-xl text-white">
         <Calendar className="w-16 h-16 mx-auto mb-6 opacity-90" />
-        <h3 className="text-2xl font-bold mb-4 text-[#005380]">Ready to Scale with ArtStay?</h3>
+        <h3 className="text-2xl font-bold mb-4 text-white">Ready to Scale with ArtStay?</h3>
         <p className="text-lg mb-6 opacity-90 italic">
           Join our partnership program and take your craft business to the next level
         </p>
