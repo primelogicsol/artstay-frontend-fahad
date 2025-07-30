@@ -164,7 +164,7 @@ export function WebhookEvents() {
   return (
     <div className="space-y-8">
       {/* Overview */}
-      <Card className="bg-gradient-to-r from-purple-50 to-indigo-50 border-purple-200">
+      {/* <Card className="bg-gradient-to-r from-purple-50 to-indigo-50 border-purple-200">
         <CardContent className="pt-6">
           <div className="flex items-start gap-4">
             <Webhook className="h-8 w-8 text-purple-600 mt-1" />
@@ -183,7 +183,7 @@ export function WebhookEvents() {
             </div>
           </div>
         </CardContent>
-      </Card>
+      </Card> */}
 
       {/* Event Categories */}
       <Card>
@@ -337,7 +337,7 @@ export function WebhookEvents() {
       />
 
       {/* Quick Setup */}
-      <Card className="bg-gradient-to-r from-amber-50 to-orange-50 border-amber-200">
+      {/* <Card className="bg-gradient-to-r from-amber-50 to-orange-50 border-amber-200">
         <CardContent className="pt-6">
           <div className="text-center">
             <Webhook className="h-12 w-12 text-amber-600 mx-auto mb-4" />
@@ -362,7 +362,7 @@ export function WebhookEvents() {
             </div>
           </div>
         </CardContent>
-      </Card>
+      </Card> */}
     </div>
   )
 }

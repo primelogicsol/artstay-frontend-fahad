@@ -68,11 +68,11 @@ const testScenarios = [
   },
 ]
 
-const sampleCredentials = {
-  apiKey: "sk_sandbox_1234567890abcdef1234567890abcdef",
-  baseUrl: "https://sandbox-api.artstay.com/v1",
-  webhookSecret: "whsec_sandbox_abcdef1234567890abcdef1234567890",
-}
+// const sampleCredentials = {
+//   apiKey: "sk_sandbox_1234567890abcdef1234567890abcdef",
+//   baseUrl: "https://sandbox-api.artstay.com/v1",
+//   webhookSecret: "whsec_sandbox_abcdef1234567890abcdef1234567890",
+// }
 
 export default function SandboxPage() {
   return (
@@ -144,7 +144,7 @@ export default function SandboxPage() {
           </div>
 
           {/* Sample Credentials */}
-          <div className="mb-16">
+          {/* <div className="mb-16">
             <Card className="bg-gradient-to-r from-gray-50 to-gray-100 border-gray-300">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
@@ -187,7 +187,7 @@ export default function SandboxPage() {
                 </div>
               </CardContent>
             </Card>
-          </div>
+          </div> */}
 
           
         </div>

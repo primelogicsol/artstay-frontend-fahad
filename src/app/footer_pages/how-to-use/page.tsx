@@ -11,28 +11,28 @@ const useCases = [
   {
     title: "Auto-list Vendor Inventory",
     description: "Automatically sync vendor inventory from local ERP systems to ArtStay platform",
-    icon: <Database className="h-6 w-6 text-blue-600" />,
+    icon: <Database className="h-6 w-6 text-white" />,
     difficulty: "Intermediate",
     time: "30 min",
   },
   {
     title: "Track Affiliate Campaigns",
     description: "Monitor affiliate campaign conversions across multiple platforms and channels",
-    icon: <Users className="h-6 w-6 text-green-600" />,
+    icon: <Users className="h-6 w-6 text-white" />,
     difficulty: "Beginner",
     time: "15 min",
   },
   {
     title: "Sync Tour Availability",
     description: "Integrate tour availability with hotel booking systems and external calendars",
-    icon: <MapPin className="h-6 w-6 text-purple-600" />,
+    icon: <MapPin className="h-6 w-6 text-white" />,
     difficulty: "Advanced",
     time: "45 min",
   },
   {
     title: "Display Carbon Footprint",
     description: "Show craft carbon footprint data in mobile apps and e-commerce platforms",
-    icon: <Smartphone className="h-6 w-6 text-orange-600" />,
+    icon: <Smartphone className="h-6 w-6 text-white" />,
     difficulty: "Beginner",
     time: "20 min",
   },
@@ -239,13 +239,13 @@ export default function HowToUsePage() {
         <div className="container mx-auto px-4">
           {/* Use Cases Overview */}
           <div className="mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Developer Use Cases</h2>
+            <h2 className="text-3xl font-bold text-[#005380]  mb-8 text-center">Developer Use Cases</h2>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
               {useCases.map((useCase, index) => (
                 <Card key={index} className="hover:shadow-lg transition-shadow">
                   <CardContent className="pt-6">
                     <div className="flex flex-col items-center text-center space-y-3">
-                      <div className="p-3 bg-gray-50 rounded-full">{useCase.icon}</div>
+                      <div className="p-3 bg-gradient-to-br from-[#005380] to-[#0085CC] rounded-full">{useCase.icon}</div>
                       <h3 className="font-semibold">{useCase.title}</h3>
                       <p className="text-sm text-gray-600">{useCase.description}</p>
                       <div className="flex gap-2">
@@ -261,7 +261,7 @@ export default function HowToUsePage() {
 
           {/* Mini Tutorials */}
           <div className="mb-16">
-            <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">Mini Tutorials</h2>
+            <h2 className="text-2xl font-bold text-[#005380]  mb-8 text-center">Mini Tutorials</h2>
             <Tabs defaultValue="inventory" className="w-full">
               <TabsList className="grid w-full grid-cols-3">
                 <TabsTrigger value="inventory" className="flex items-center gap-2">
@@ -305,7 +305,7 @@ export default function HowToUsePage() {
 
           {/* Implementation Steps */}
           <div className="mb-16">
-            <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">Implementation Workflow</h2>
+            <h2 className="text-2xl font-bold text-[#005380] mb-8 text-center">Implementation Workflow</h2>
             <div className="grid gap-6 lg:grid-cols-3">
               <Card className="border-l-4 border-l-blue-500">
                 <CardHeader>
@@ -398,9 +398,9 @@ export default function HowToUsePage() {
 
           {/* Best Practices */}
           <div className="mb-16">
-            <Card className="bg-gradient-to-r from-yellow-50 to-amber-50 border-yellow-200">
+            <Card className="bg-gradient-to-r from-[#005380] to-[#0085CC] border-[#005380]">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-amber-900">
+                <CardTitle className="flex items-center gap-2 text-white">
                   <Lightbulb className="h-5 w-5" />
                   Development Best Practices
                 </CardTitle>
@@ -455,7 +455,7 @@ export default function HowToUsePage() {
           </div>
 
           {/* Next Steps */}
-          <Card className="bg-gradient-to-r from-indigo-50 to-purple-50 border-indigo-200">
+          {/* <Card className="bg-gradient-to-r from-indigo-50 to-purple-50 border-indigo-200">
             <CardContent className="pt-8 pb-8">
               <div className="text-center">
                 <BookOpen className="h-16 w-16 text-indigo-600 mx-auto mb-6" />
@@ -480,7 +480,7 @@ export default function HowToUsePage() {
                 </div>
               </div>
             </CardContent>
-          </Card>
+          </Card> */}
         </div>
       </ContentSection>
     </div>

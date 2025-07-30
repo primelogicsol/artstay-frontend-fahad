@@ -156,7 +156,7 @@ export const Header: FC<HeaderProps> = ({ disabled = false }) => {
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between p-4">
         <div className="relative ml-2 h-[30px] w-[100px] md:ml-0 xl:h-[50px] xl:w-[100px]">
           <Image
-            src="/logo/logo_2.png"
+            src="/logo/logo_1.png"
             alt="logo for artstay"
             fill
             sizes="100%"

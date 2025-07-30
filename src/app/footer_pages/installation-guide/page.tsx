@@ -4,7 +4,7 @@ import { InstallationSteps } from "~/components/footer_components/developer/inst
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card"
 import { Button } from "~/components/ui/button"
 import { Badge } from "~/components/ui/badge"
-import { Download, Play, BookOpen, Video } from "lucide-react"
+import { Download, BookOpen, Video } from "lucide-react"
 
 const resources = [
   {
@@ -73,7 +73,7 @@ export default function InstallationGuidePage() {
         <div className="container mx-auto px-4">
           {/* Quick Resources */}
           <div className="mb-16">
-            <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">Download Resources</h2>
+            <h2 className="text-2xl font-bold text-[#005380]  mb-8 text-center">Download Resources</h2>
             <div className="grid gap-6 md:grid-cols-3">
               {resources.map((resource, index) => (
                 <Card key={index} className="hover:shadow-lg transition-shadow">
@@ -102,13 +102,13 @@ export default function InstallationGuidePage() {
 
           {/* Installation Steps */}
           <div className="mb-16">
-            <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">Step-by-Step Installation</h2>
+            <h2 className="text-2xl font-bold text-[#005380]  mb-8 text-center">Step-by-Step Installation</h2>
             <InstallationSteps />
           </div>
 
           {/* Troubleshooting */}
           <div className="mb-16">
-            <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">Common Issues & Solutions</h2>
+            <h2 className="text-2xl font-bold text-[#005380]  mb-8 text-center">Common Issues & Solutions</h2>
             <div className="space-y-6">
               {troubleshooting.map((item, index) => (
                 <Card key={index}>
@@ -127,7 +127,7 @@ export default function InstallationGuidePage() {
           </div>
 
           {/* Next Steps */}
-          <Card className="bg-gradient-to-r from-green-50 to-emerald-50 border-green-200">
+          {/* <Card className="bg-gradient-to-r from-green-50 to-emerald-50 border-green-200">
             <CardContent className="pt-8 pb-8">
               <div className="text-center">
                 <Play className="h-16 w-16 text-green-600 mx-auto mb-6" />
@@ -152,7 +152,7 @@ export default function InstallationGuidePage() {
                 </div>
               </div>
             </CardContent>
-          </Card>
+          </Card> */}
         </div>
       </ContentSection>
     </div>

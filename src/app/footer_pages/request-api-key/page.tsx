@@ -122,30 +122,30 @@ export default function RequestApiKeyPage() {
         <div className="container mx-auto px-4">
           {/* Access Levels */}
           <div className="mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Choose Your Access Level</h2>
+            <h2 className="text-3xl font-bold text-[#005380] mb-8 text-center">Choose Your Access Level</h2>
             <div className="grid gap-6 lg:grid-cols-3">
               {accessLevels.map((access, index) => (
                 <Card
                   key={index}
                   className={`relative cursor-pointer transition-all duration-300 hover:shadow-lg ${
-                    selectedLevel === access.level ? "ring-2 ring-amber-500 shadow-lg" : ""
+                    selectedLevel === access.level ? "ring-2 ring-[#005380] shadow-lg" : ""
                   }`}
                   onClick={() => setSelectedLevel(access.level)}
                 >
                   {access.badge && (
                     <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                      <Badge className="bg-amber-600 text-white">{access.badge}</Badge>
+                      <Badge className="bg-[#005380] text-white">{access.badge}</Badge>
                     </div>
                   )}
                   <CardHeader className="text-center">
                     <div className="flex justify-center mb-3">
-                      <div className="p-3 bg-amber-50 rounded-full">
-                        <Key className="h-6 w-6 text-amber-600" />
+                      <div className="p-3 bg-[#005380] rounded-full">
+                        <Key className="h-6 w-6 text-[#005380]" />
                       </div>
                     </div>
                     <CardTitle className="text-xl">{access.level}</CardTitle>
                     <p className="text-gray-600 text-sm">{access.description}</p>
-                    <div className="text-2xl font-bold text-amber-600 mt-2">{access.price}</div>
+                    <div className="text-2xl font-bold text-[#005380] mt-2">{access.price}</div>
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-2 mb-6">
@@ -178,11 +178,11 @@ export default function RequestApiKeyPage() {
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <Shield className="h-5 w-5 text-amber-600" />
+                    <Shield className="h-5 w-5 text-[#005380]" />
                     API Access Application
                   </CardTitle>
                   <p className="text-sm text-gray-600">
-                    Selected: <span className="font-medium text-amber-600">{selectedLevel}</span>
+                    Selected: <span className="font-medium text-[#005380]">{selectedLevel}</span>
                   </p>
                 </CardHeader>
                 <CardContent>
@@ -343,12 +343,12 @@ export default function RequestApiKeyPage() {
 
           {/* Sample Applications */}
           <div className="mb-16">
-            <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">Recent Applications</h2>
+            <h2 className="text-2xl font-bold text-[#005380] mb-8 text-center">Recent Applications</h2>
             <div className="max-w-4xl mx-auto">
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <Globe className="h-5 w-5 text-amber-600" />
+                    <Globe className="h-5 w-5 text-[#005380]" />
                     Application Examples
                   </CardTitle>
                   <p className="text-sm text-gray-600">See how other developers are using ArtStay APIs</p>
@@ -384,7 +384,7 @@ export default function RequestApiKeyPage() {
           </div>
 
           {/* Support Information */}
-          <Card className="bg-gradient-to-r from-green-50 to-emerald-50 border-green-200">
+          {/* <Card className="bg-gradient-to-r from-green-50 to-emerald-50 border-green-200">
             <CardContent className="pt-8 pb-8">
               <div className="text-center">
                 <Shield className="h-16 w-16 text-green-600 mx-auto mb-6" />
@@ -404,7 +404,7 @@ export default function RequestApiKeyPage() {
                 </div>
               </div>
             </CardContent>
-          </Card>
+          </Card> */}
         </div>
       </ContentSection>
     </div>
