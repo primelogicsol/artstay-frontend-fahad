@@ -115,7 +115,7 @@ export default function RequestApiKeyPage() {
         title="Get Your Access Token"
         subtitle="Request Api Key"
         description="Choose your access level and get approved within 48 hours. We offer Public Access for craft catalogs and tours, Authenticated Access for vendor and affiliate modules, and Admin Access for partner-level integrations with custom configurations."
-        backgroundImage="/placeholder.svg?height=600&width=1200&text=API+Access+Request"
+        backgroundImage="/images/kashmir.jpg"
       />
 
       <ContentSection className="py-16">

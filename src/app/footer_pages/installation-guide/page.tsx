@@ -66,7 +66,7 @@ export default function InstallationGuidePage() {
         title="Get Set in Minutes"
         subtitle="Installation Guide"
         description="Our installation guide includes SDK download links for Node.js, Python, and PHP with step-by-step setup for both frontend and backend. Complete environment variable configuration and deployment best practices to get you up and running quickly."
-        backgroundImage="/placeholder.svg?height=600&width=1200&text=Installation+Guide"
+       backgroundImage="/images/kashmir.jpg"
       />
 
       <ContentSection className="py-16">

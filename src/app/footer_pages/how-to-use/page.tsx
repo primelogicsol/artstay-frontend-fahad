@@ -232,7 +232,7 @@ export default function HowToUsePage() {
         title="Start Building Quickly"
         subtitle="How To Use"
         description="Learn how to auto-list vendor inventory from local ERP, track affiliate campaign conversions across platforms, sync tour availability with hotel booking systems, and display craft carbon footprint in mobile apps. Complete with mini tutorials and practical examples."
-        backgroundImage="/placeholder.svg?height=600&width=1200&text=Developer+Tutorials"
+        backgroundImage="/images/kashmir.jpg"
       />
 
       <ContentSection className="py-16">

@@ -81,7 +81,7 @@ export default function SandboxPage() {
         title="Test Without Limits"
         subtitle="SandBox"
         description="Our Sandbox mirrors the production environment, allowing you to simulate vendor registration and inventory sync, trigger and observe affiliate conversions, test webhook payloads and response handling. Pre-generated API tokens are available for demo apps with no setup required."
-        backgroundImage="/placeholder.svg?height=600&width=1200&text=API+Sandbox+Environment"
+        backgroundImage="/images/kashmir.jpg"
       />
 
       <ContentSection className="py-16">

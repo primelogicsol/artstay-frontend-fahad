@@ -21,7 +21,7 @@ export function ApiCard({ title, description, icon, features, ctaText, ctaLink, 
       <CardHeader>
         <div className="flex items-start justify-between">
           <div className="flex items-center gap-3">
-            <div className="p-2 bg-amber-100 rounded-lg">{icon}</div>
+            <div className="p-2 bg-gradient-to-br from-[#005380] to-[#0085CC] rounded-lg">{icon}</div>
             <div>
               <CardTitle className="text-lg">{title}</CardTitle>
               {badge && (

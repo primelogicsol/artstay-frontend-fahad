@@ -42,7 +42,7 @@ export default function WebhookEventsPage() {
         title="Stay In Sync"
         subtitle="WebHook Events"
         description="Supported webhooks include vendor events (product.created, inventory.updated, payment.released), affiliate events (conversion.recorded, payment.generated), and tour events (booking.confirmed, cancellation.requested). Features custom endpoint support, retry logic with signature verification, timestamped event logs and debug testing."
-        backgroundImage="/placeholder.svg?height=600&width=1200&text=Webhook+Events+System"
+        backgroundImage="/images/kashmir.jpg"
       />
 
       <ContentSection className="py-16">
