@@ -140,7 +140,7 @@ export default function RequestApiKeyPage() {
                   <CardHeader className="text-center">
                     <div className="flex justify-center mb-3">
                       <div className="p-3 bg-[#005380] rounded-full">
-                        <Key className="h-6 w-6 text-[#005380]" />
+                        <Key className="h-6 w-6 text-white" />
                       </div>
                     </div>
                     <CardTitle className="text-xl">{access.level}</CardTitle>
