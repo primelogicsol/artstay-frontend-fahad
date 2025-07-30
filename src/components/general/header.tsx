@@ -198,7 +198,7 @@ export const Header: FC<HeaderProps> = ({ disabled = false }) => {
         {/* Logo */}
         <div className="relative ml-1 h-[30px] w-[90px] sm:ml-2 sm:h-[35px] sm:w-[110px] md:ml-0 lg:h-[40px] lg:w-[120px] xl:h-[50px] xl:w-[130px]">
           <Image
-            src="/logo/logo_1.png"
+            src="/logo/logo_2.png"
             alt="De Koshur Crafts Logo"
             fill
             sizes="(max-width: 640px) 90px, (max-width: 768px) 110px, (max-width: 1024px) 120px, 130px"
