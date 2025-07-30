@@ -130,7 +130,7 @@ const platformFeatures = [
 
 const integrationModules = [
   {
-    module: "Ecommerce",
+    module: "E-commerce",
     description: "Product catalog, inventory management, order processing",
     icon: <Database className="h-6 w-6 text-white" />,
     endpoints: 12,
@@ -207,7 +207,7 @@ export default function ApiDeveloperToolsPage() {
                       <div className="flex-1">
                         <div className="flex items-center justify-between mb-2">
                           <h3 className="font-semibold">{module.module}</h3>
-                          <Badge variant="outline">{module.endpoints} endpoints</Badge>
+                          {/* <Badge variant="outline">{module.endpoints} endpoints</Badge> */}
                         </div>
                         <p className="text-sm text-gray-600">{module.description}</p>
                       </div>
