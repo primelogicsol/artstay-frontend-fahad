@@ -223,7 +223,7 @@ const rateLimits = [
   {
     tier: "Public Access",
     requests: "1,000/hour",
-    burst: "100/minute",
+    burst: "100/minute", 
     description: "For public data like product catalogs and tour listings",
   },
   {
@@ -237,6 +237,12 @@ const rateLimits = [
     requests: "50,000/hour",
     burst: "2,000/minute",
     description: "For high-volume integrations and enterprise use",
+  },
+  {
+    tier: "Enterprise",
+    requests: "200,000/hour",
+    burst: "5,000/minute",
+    description: "For large-scale business operations with dedicated support",
   },
 ]
 
@@ -270,8 +276,8 @@ export default function DocumentationPage() {
                 <div className="flex items-center gap-4 mb-4">
                   <BookOpen className="h-8 w-8 text-blue-600" />
                   <div>
-                    <h2 className="text-xl font-bold text-blue-900">API Documentation</h2>
-                    <p className="text-blue-700">Access comprehensive guides and download resources</p>
+                    <h2 className="text-xl font-bold text-[#005380]">API Documentation</h2>
+                    <p className="text-blue-700 italic">Access comprehensive guides and download resources</p>
                   </div>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-3">
@@ -290,7 +296,7 @@ export default function DocumentationPage() {
 
           {/* API Endpoints */}
           <div className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">API Endpoints</h2>
+            <h2 className="text-2xl font-bold text-[#005380] mb-6">API Endpoints</h2>
             <Tabs defaultValue="vendors" className="w-full">
               <TabsList className="grid w-full grid-cols-3">
                 <TabsTrigger value="vendors" className="flex items-center gap-2">
@@ -348,7 +354,7 @@ export default function DocumentationPage() {
 
           {/* Sample Requests */}
           <div className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Sample Requests & Responses</h2>
+            <h2 className="text-2xl font-bold text-[#005380] mb-6">Sample Requests & Responses</h2>
             <Tabs defaultValue="vendors" className="w-full">
               <TabsList className="grid w-full grid-cols-3">
                 <TabsTrigger value="vendors">Vendor API</TabsTrigger>
@@ -371,7 +377,7 @@ export default function DocumentationPage() {
 
           {/* Authentication */}
           <div className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Authentication Protocols</h2>
+            <h2 className="text-2xl font-bold text-[#005380] mb-6">Authentication Protocols</h2>
             <div className="grid gap-6 lg:grid-cols-2">
               <Card>
                 <CardHeader>
@@ -444,12 +450,12 @@ export default function DocumentationPage() {
 
           {/* Rate Limits */}
           <div className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Rate Limits & Response Codes</h2>
+            <h2 className="text-2xl font-bold text-[#005380] mb-6">Rate Limits & Response Codes</h2>
             <div className="grid gap-6 lg:grid-cols-2">
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <Zap className="h-5 w-5 text-amber-600" />
+                    <Zap className="h-5 w-5 text-[#005380]" />
                     Rate Limits
                   </CardTitle>
                 </CardHeader>
@@ -472,7 +478,7 @@ export default function DocumentationPage() {
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <Globe className="h-5 w-5 text-purple-600" />
+                    <Globe className="h-5 w-5 text-[#005380]" />
                     HTTP Response Codes
                   </CardTitle>
                 </CardHeader>
@@ -504,32 +510,7 @@ export default function DocumentationPage() {
             </div>
           </div>
 
-          {/* Resources */}
-          <Card className="bg-gradient-to-r from-green-50 to-emerald-50 border-green-200">
-            <CardContent className="pt-6">
-              <div className="text-center">
-                <BookOpen className="h-12 w-12 text-green-600 mx-auto mb-4" />
-                <h3 className="text-xl font-bold text-green-900 mb-2">Additional Resources</h3>
-                <p className="text-green-700 mb-6 max-w-2xl mx-auto">
-                  Access our complete developer toolkit including Postman collections, SDK documentation, and
-                  interactive tutorials to accelerate your integration.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                  <Button className="bg-green-600 hover:bg-green-700">
-                    <Download className="h-4 w-4 mr-2" />
-                    Download Postman Collection
-                  </Button>
-                  <Button
-                    variant="outline"
-                    className="border-green-300 text-green-700 hover:bg-green-50 bg-transparent"
-                  >
-                    <ExternalLink className="h-4 w-4 mr-2" />
-                    View SDK Documentation
-                  </Button>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+          
         </div>
       </ContentSection>
     </div>
