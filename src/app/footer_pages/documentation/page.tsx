@@ -253,7 +253,6 @@ const responseCodes = [
   { code: "401", status: "Unauthorized", description: "Invalid or missing authentication" },
   { code: "403", status: "Forbidden", description: "Insufficient permissions" },
   { code: "404", status: "Not Found", description: "Resource not found" },
-  { code: "429", status: "Too Many Requests", description: "Rate limit exceeded" },
   { code: "500", status: "Internal Server Error", description: "Server error occurred" },
 ]
 

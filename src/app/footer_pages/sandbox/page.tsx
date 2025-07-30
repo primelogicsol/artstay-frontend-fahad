@@ -3,27 +3,27 @@ import HeroSection  from "~/components/footer_components/ui/hero-section"
 import  ContentSection  from "~/components/footer_components/ui/content-section"
 import { SandboxDemo } from "~/components/footer_components/developer/sandbox-demo"
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card"
-import { Button } from "~/components/ui/button"
-import { TestTube, Play, Shield, Zap, Database, Code } from "lucide-react"
+
+import { TestTube, Shield, Zap, Database, Code } from "lucide-react"
 
 const sandboxFeatures = [
   {
-    icon: <Database className="h-6 w-6 text-blue-600" />,
+    icon: <Database className="h-6 w-6 text-white" />,
     title: "Production Mirror",
     description: "Exact replica of our production environment with real API responses",
   },
   {
-    icon: <Shield className="h-6 w-6 text-green-600" />,
+    icon: <Shield className="h-6 w-6 text-white" />,
     title: "Safe Testing",
     description: "Test all operations without affecting live data or real transactions",
   },
   {
-    icon: <Zap className="h-6 w-6 text-yellow-600" />,
+    icon: <Zap className="h-6 w-6 text-white" />,
     title: "No Rate Limits",
     description: "Unlimited API calls for thorough testing and development",
   },
   {
-    icon: <Code className="h-6 w-6 text-purple-600" />,
+    icon: <Code className="h-6 w-6 text-white" />,
     title: "Pre-generated Data",
     description: "Sample vendors, products, and bookings ready for immediate testing",
   },
@@ -89,7 +89,7 @@ export default function SandboxPage() {
           {/* Interactive Demo */}
           <div className="mb-16">
             <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Interactive API Testing</h2>
+              <h2 className="text-3xl font-bold text-[#005380] mb-4">Interactive API Testing</h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
                 Try our APIs instantly with pre-configured endpoints and sample data. No authentication required in
                 sandbox mode.
@@ -100,13 +100,13 @@ export default function SandboxPage() {
 
           {/* Sandbox Features */}
           <div className="mb-16">
-            <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">Sandbox Environment Features</h2>
+            <h2 className="text-2xl font-bold text-[#005380] mb-8 text-center">Sandbox Environment Features</h2>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
               {sandboxFeatures.map((feature, index) => (
                 <Card key={index} className="text-center hover:shadow-lg transition-shadow">
                   <CardContent className="pt-6">
                     <div className="flex flex-col items-center space-y-3">
-                      <div className="p-3 bg-gray-50 rounded-full">{feature.icon}</div>
+                      <div className="p-3 bg-gradient-to-br from-[#005380] to-[#0085CC] rounded-full">{feature.icon}</div>
                       <h3 className="font-semibold">{feature.title}</h3>
                       <p className="text-sm text-gray-600">{feature.description}</p>
                     </div>
@@ -118,7 +118,7 @@ export default function SandboxPage() {
 
           {/* Test Scenarios */}
           <div className="mb-16">
-            <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">Available Test Scenarios</h2>
+            <h2 className="text-2xl font-bold text-[#005380] mb-8 text-center">Available Test Scenarios</h2>
             <div className="grid gap-6 md:grid-cols-2">
               {testScenarios.map((category, index) => (
                 <Card key={index}>
@@ -189,33 +189,7 @@ export default function SandboxPage() {
             </Card>
           </div>
 
-          {/* Launch Sandbox */}
-          <Card className="bg-gradient-to-r from-amber-50 to-orange-50 border-amber-200">
-            <CardContent className="pt-8 pb-8">
-              <div className="text-center">
-                <Play className="h-16 w-16 text-amber-600 mx-auto mb-6" />
-                <h2 className="text-2xl font-bold text-amber-900 mb-4">Ready to Start Testing?</h2>
-                <p className="text-amber-700 mb-6 max-w-2xl mx-auto">
-                  Launch our interactive sandbox environment and start testing your integrations immediately. No setup
-                  required - just click and start building.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button size="lg" className="bg-amber-600 hover:bg-amber-700">
-                    <Play className="h-5 w-5 mr-2" />
-                    Launch Sandbox
-                  </Button>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="border-amber-300 text-amber-700 hover:bg-amber-50 bg-transparent"
-                  >
-                    <Code className="h-5 w-5 mr-2" />
-                    View Code Examples
-                  </Button>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+          
         </div>
       </ContentSection>
     </div>

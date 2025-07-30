@@ -76,7 +76,7 @@ export function SandboxDemo() {
     <Card className="w-full">
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
-          <Terminal className="h-5 w-5 text-amber-600" />
+          <Terminal className="h-5 w-5 text-[#005380]" />
           Interactive API Sandbox
         </CardTitle>
         <p className="text-sm text-gray-600">

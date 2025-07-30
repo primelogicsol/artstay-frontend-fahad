@@ -537,11 +537,13 @@ export default function Footer() {
                 <div className="p-4 rounded-lg bg-gradient-to-br from-[#005380] to-[#0085CC] bg-opacity-30 border border-[#0085CC] border-opacity-40 backdrop-blur-sm hover:bg-opacity-40 hover:scale-105 transition-all duration-300 flex-1">
                   <div className="flex items-center gap-2 mb-3">
                     <Code className="w-4 h-4 text-white" />
+                    <Link href="/footer_pages/api-developer-tools">
                     <h4 className="font-bold text-white text-sm">API & Developer Tools</h4>
+                    </Link>
                   </div>
                   <div className="space-y-2">
                     <Link
-                      href="/api-documentation"
+                      href="/footer_pages/documentation"
                       className="block text-sm md:text-base text-gray-100 font-medium hover:text-white font-semibold hover:translate-x-2 transition-all duration-300 focus:ring-2 focus:ring-white rounded"
                     >
                       Documentation
