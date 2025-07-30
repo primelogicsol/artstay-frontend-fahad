@@ -2,7 +2,7 @@ import HeroSection  from "~/components/footer_components/ui/hero-section"
 import  ContentSection  from "~/components/footer_components/ui/content-section"
 import  {ApiCard}  from "~/components/footer_components/developer/api-card"
 import { Card, CardContent } from "~/components/ui/card"
-import { Badge } from "~/components/ui/badge"
+
 import {
   BookOpen,
   TestTube,

@@ -31,42 +31,42 @@ function getLinkProps(href: string, disabled?: boolean, baseClass?: string) {
 const navigationItems = [
   { 
     title: "Home", 
-    href: "/", 
-    type: "link" 
+    href: "/" as const, 
+    type: "link" as const
   },
   {
     title: "Cultural Craft Experiences",
-    type: "dropdown",
+    type: "dropdown" as const,
     items: [
-      { href: "/artisan", title: "Craft School" },
-      { href: "/safari", title: "Craft Safari" },
-      { href: "/fair", title: "Craft Fair" },
+      { href: "/artisan" as const, title: "Craft School" },
+      { href: "/safari" as const, title: "Craft Safari" },
+      { href: "/fair" as const, title: "Craft Fair" },
     ]
   },
   {
     title: "Verified Craft Marketplace",
-    type: "dropdown",
+    type: "dropdown" as const,
     items: [
-      { href: "/shop", title: "Craft Store" },
-      { href: "/documentary", title: "Craft Documenter" },
+      { href: "/shop" as const, title: "Craft Store" },
+      { href: "/documentary" as const, title: "Craft Documenter" },
     ]
   },
   {
     title: "Heritage & Eco Tours",
-    type: "dropdown",
+    type: "dropdown" as const,
     items: [
-      { href: "#", title: "Kashmir Tour" },
-      { href: "/eco-retreat", title: "Eco Retreat" },
-      { href: "/dining", title: "Dining Voyage" },
-      { href: "/eco-transit", title: "Eco Transit" },
+      { href: "/kashmir-tour" as const, title: "Kashmir Tour" },
+      { href: "/eco-retreat" as const, title: "Eco Retreat" },
+      { href: "/dining" as const, title: "Dining Voyage" },
+      { href: "/eco-transit" as const, title: "Eco Transit" },
     ]
   },
   {
     title: "Planning & Services",
-    type: "dropdown",
+    type: "dropdown" as const,
     items: [
-      { href: "/travel", title: "Travel Planner" },
-      { href: "/language", title: "Language Services" },
+      { href: "/travel" as const, title: "Travel Planner" },
+      { href: "/language" as const, title: "Language Services" },
     ]
   }
 ];
@@ -99,22 +99,22 @@ export const Header: FC<HeaderProps> = ({ disabled = false }) => {
   return (
     <header
       className={cn(
-        "sticky top-0 z-[103] flex w-full flex-col ",
+        "sticky top-0 z-[103] flex w-full flex-col transition-all duration-500 ease-in-out",
         isScrolled 
           ? "bg-gradient-to-br from-[#005380] to-[#0085CC] shadow-lg" 
-          : "bg-[#054c72] text-white"
+          : "bg-[#005380] text-white"
       )}
     >
       {/* Top Banner - only visible when not scrolled */}
       <div
         className={cn(
-          "hidden gap-6 bg-[#0085CC] p-6 py-3 text-white lg:flex ",
-          isScrolled && "lg:hidden",
+          "hidden gap-6 bg-gradient-to-r from-[#003d5c] to-[#005380] p-6 py-3 text-white lg:flex transition-all duration-500 ease-in-out overflow-hidden",
+          isScrolled ? "max-h-0 opacity-0 py-0" : "max-h-20 opacity-100",
         )}
       >
-        <div className="mx-auto flex w-full max-w-7xl justify-center items-center">
+        <div className="mx-auto flex w-full max-w-7xl justify-between items-center">
           <div className="flex items-center gap-4 font-text">
-            <p className="font-semibold text-sm xl:text-base px-2">
+            <p className="font-semibold text-sm xl:text-base">
               De Koshur Crafts&apos; - Kashmir Craft & Tourism Convergence Marketplace
             </p>
           </div>
@@ -198,7 +198,7 @@ export const Header: FC<HeaderProps> = ({ disabled = false }) => {
         {/* Logo */}
         <div className="relative ml-1 h-[30px] w-[90px] sm:ml-2 sm:h-[35px] sm:w-[110px] md:ml-0 lg:h-[40px] lg:w-[120px] xl:h-[50px] xl:w-[130px]">
           <Image
-            src="/logo/logo_2.png"
+            src="/logo/logo_1.png"
             alt="De Koshur Crafts Logo"
             fill
             sizes="(max-width: 640px) 90px, (max-width: 768px) 110px, (max-width: 1024px) 120px, 130px"
@@ -226,8 +226,8 @@ export const Header: FC<HeaderProps> = ({ disabled = false }) => {
                     <Button
                       variant="ghost"
                       className={cn(
-                        "text-xs md:text-sm xl:text-base text-white hover:bg-white/10 transition-all duration-200 font-medium px-2 md:px-3 xl:px-4 py-2",
-                        isScrolled && "text-white hover:bg-white/20",
+                        "text-xs md:text-sm xl:text-base text-white hover:bg-white/20 hover:text-white transition-all duration-200 font-medium px-2 md:px-3 xl:px-4 py-2",
+                        isScrolled && "text-white hover:bg-white/30",
                       )}
                       asChild
                     >
@@ -238,9 +238,9 @@ export const Header: FC<HeaderProps> = ({ disabled = false }) => {
                       <Button
                         variant="ghost"
                         className={cn(
-                          "text-xs md:text-sm xl:text-base text-white hover:bg-white/10 transition-all duration-200 font-medium px-2 md:px-3 xl:px-4 py-2",
-                          isScrolled && "text-white hover:bg-white/20",
-                          activeDropdown === item.title && "bg-white/10"
+                          "text-xs md:text-sm xl:text-base text-white hover:bg-white/20 hover:text-white transition-all duration-200 font-medium px-2 md:px-3 xl:px-4 py-2",
+                          isScrolled && "text-white hover:bg-white/30",
+                          activeDropdown === item.title && "bg-white/20"
                         )}
                         onClick={() => handleDropdownToggle(item.title)}
                         onMouseEnter={() => setActiveDropdown(item.title)}
@@ -259,7 +259,7 @@ export const Header: FC<HeaderProps> = ({ disabled = false }) => {
                       {/* Dropdown Menu */}
                       {activeDropdown === item.title && (
                         <div 
-                          className="absolute top-full left-0 mt-1 w-48 md:min-w-[200px] lg:min-w-[220px] bg-gradient-to-br from-[#005380] to-[#0085CC] rounded-lg shadow-xl border border-[#005380] py-2 z-50"
+                          className="absolute top-full left-0 mt-1 w-48 md:min-w-[200px] lg:min-w-[220px] bg-gradient-to-br from-[#005380] to-[#0085CC] rounded-lg shadow-xl border border-blue-300/20 py-2 z-50"
                           onMouseLeave={handleDropdownClose}
                           onTouchEnd={handleDropdownClose}
                         >
@@ -267,7 +267,7 @@ export const Header: FC<HeaderProps> = ({ disabled = false }) => {
                             <Link
                               key={dropdownIndex}
                               href={disabled ? '#' : dropdownItem.href}
-                              className="block px-4 py-2.5 text-white hover:bg-gradient-to-r hover:from-blue-50 hover:to-blue-100 hover:text-[#005380] transition-all duration-200 text-sm font-medium"
+                              className="block px-4 py-2.5 text-white hover:bg-white/20 hover:text-white transition-all duration-200 text-sm font-medium"
                               onClick={handleDropdownClose}
                             >
                               {dropdownItem.title}

@@ -3,9 +3,9 @@ import ContentSection  from "~/components/footer_components/ui/content-section"
 import { CodeSnippet } from "~/components/footer_components/developer/code-snippet"
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card"
 import { Badge } from "~/components/ui/badge"
-import { Button } from "~/components/ui/button"
+
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/tabs"
-import { Lightbulb, Database, Users, MapPin, Smartphone, Code, Play, BookOpen } from "lucide-react"
+import { Lightbulb, Database, Users, MapPin, Smartphone, Code, Play} from "lucide-react"
 
 const useCases = [
   {

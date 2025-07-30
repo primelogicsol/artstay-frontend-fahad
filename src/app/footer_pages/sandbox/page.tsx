@@ -196,10 +196,10 @@ export default function SandboxPage() {
   )
 }
 
-function Label({ className, children, ...props }: { className?: string; children: React.ReactNode }) {
-  return (
-    <label className={className} {...props}>
-      {children}
-    </label>
-  )
-}
+// function Label({ className, children, ...props }: { className?: string; children: React.ReactNode }) {
+//   return (
+//     <label className={className} {...props}>
+//       {children}
+//     </label>
+//   )
+// }

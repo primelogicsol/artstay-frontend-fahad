@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card"
 import { Badge } from "~/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/tabs"
 import { CodeSnippet } from "./code-snippet"
-import { Webhook, Shield, Clock, Database, Users, MapPin } from "lucide-react"
+import { Shield, Clock, Database, Users, MapPin } from "lucide-react"
 
 const webhookEvents = {
   vendor: [
