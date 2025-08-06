@@ -102,14 +102,22 @@ export const ecoTransitRouter = createTRPCRouter({
     }),
   getAllEcoTransits: publicProcedure.query(async () => {
     try {
+      console.log("Fetching eco-transits from:", `${env.API_URL}/eco-transit/all`);
       const response = await axios.get<ApiResponseProps<EcoTransitProps[]>>(
         `${env.API_URL}/eco-transit/all`,
       );
+      console.log("Eco-transit API response:", response.data);
       return response.data.data;
     } catch (error) {
+      console.error("Eco-transit API error:", error);
       if (error instanceof TRPCClientError) {
         throw new TRPCError({ message: error.message, code: "NOT_FOUND" });
       } else if (error instanceof AxiosError) {
+        console.error("Axios error details:", {
+          status: error.response?.status,
+          data: error.response?.data as { errors?: string[] },
+          message: error.message
+        });
         throw new TRPCError({
           message: (error.response?.data as { errors: string[] })?.errors?.[0] ?? "Unknown error",
           code: "BAD_REQUEST",

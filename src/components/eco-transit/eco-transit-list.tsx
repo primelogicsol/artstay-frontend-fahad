@@ -13,7 +13,17 @@ export const EcoTransitList = () => {
   const searchParams = useSearchParams();
 
   // Fetch all eco-transit vendors
-  const { data: ecoTransits = [], isLoading } = api.ecoTransit.getAllEcoTransits.useQuery();
+  const { data: ecoTransits = [], isLoading, error } = api.ecoTransit.getAllEcoTransits.useQuery();
+
+  // Debug logging
+  console.log("EcoTransitList Debug:", {
+    ecoTransits,
+    isLoading,
+    error,
+    dataLength: ecoTransits?.length,
+    dataType: typeof ecoTransits,
+    isArray: Array.isArray(ecoTransits)
+  });
 
   const pickupLocation = searchParams.get("pickupLocation");
   const dropOffLocation = searchParams.get("dropOffLocation");
@@ -24,7 +34,7 @@ export const EcoTransitList = () => {
   );
 
   const filteredTransits = useMemo(() => {
-    if (!pickupLocation && !dropOffLocation && !travelDate && vehicleType.length === 0) {
+    if (!pickupLocation && !dropOffLocation && !travelDate && (vehicleType?.length ?? 0) === 0) {
       return ecoTransits;
     }
     return ecoTransits.filter((_transit) => {
@@ -37,11 +47,21 @@ export const EcoTransitList = () => {
     return <div className="text-center py-12">Loading...</div>;
   }
 
+  if (error) {
+    console.error("EcoTransit API Error:", error);
+    return (
+      <div className="text-center py-12">
+        <h3 className="text-lg font-medium text-red-600">Error loading eco-transit options</h3>
+        <p className="mt-2 text-sm text-gray-500">{error.message}</p>
+      </div>
+    );
+  }
+
   return (
     <div className="px-4 py-8">
       <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {filteredTransits.length > 0 ? (
-          filteredTransits.map((transit) => (
+        {(filteredTransits?.length ?? 0) > 0 ? (
+          filteredTransits?.map((transit) => (
             <Card
               key={transit.transitId}
               className="cursor-pointer overflow-hidden bg-white transition-shadow duration-300 hover:shadow-md"

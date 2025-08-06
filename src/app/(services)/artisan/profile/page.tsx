@@ -197,7 +197,7 @@ export default async function ArtisanPage({ searchParams }: PageProps) {
           className="grid grid-cols-1 gap-4 p-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         >
           <HeadlingUnderline title=" My Portfolio" />
-          {artisan.Portfolio.images?.map((image, index) => (
+          {artisan.Portfolio?.images?.map((image, index) => (
             <div
               key={index}
               className="group relative overflow-hidden rounded-xl bg-white shadow-md transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-xl"
@@ -216,13 +216,13 @@ export default async function ArtisanPage({ searchParams }: PageProps) {
 
               {/* Optional: Image Number Badge */}
               <div className="absolute left-3 top-3 rounded-full bg-white/90 px-2 py-1 text-xs font-medium text-gray-800 shadow-md">
-                {index + 1}/{artisan.Portfolio.images.length}
+                {index + 1}/{artisan.Portfolio?.images?.length || 0}
               </div>
             </div>
           ))}
 
           {/* Loading State Placeholder */}
-          {artisan.Portfolio.images.length === 0 && (
+          {(!artisan.Portfolio?.images || artisan.Portfolio.images.length === 0) && (
             <div className="col-span-full flex h-[17rem] items-center justify-center rounded-xl bg-gray-100">
               <p className="text-gray-500">No portfolio images available</p>
             </div>

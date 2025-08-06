@@ -66,7 +66,7 @@ export const EcoTransitFilter = () => {
     if (data.pickupLocation) params.set("pickupLocation", data.pickupLocation);
     if (data.dropOffLocation) params.set("dropOffLocation", data.dropOffLocation);
     if (data.travelDate) params.set("travelDate", data.travelDate);
-    if (data.vehicleType.length) params.set("vehicleType", data.vehicleType.join(","));
+    if (data.vehicleType?.length) params.set("vehicleType", data.vehicleType.join(","));
     if (data.numberOfPassengers) params.set("numberOfPassengers", String(data.numberOfPassengers));
     router.push(`${pathname}?${params.toString()}`);
   };
