@@ -2,11 +2,40 @@
 import type React from "react"
 import { useState } from "react"
 import { Upload, Award, ImageIcon, User, Building, AlertCircle, CheckCircle, Mail } from "lucide-react"
+import axios from "axios"
+import { useToast } from "~/hooks/use-toast"
+
+
+export interface IFormResponse {
+  status: string
+  message: string
+  data: Data
+}
+
+export interface Data {
+  businessName: string
+  contactPerson: string
+  email: string
+  password: string
+  phoneNumber: string
+  businessType: string
+  location: string
+  yearsOfExperience: number
+  businessDescription: string
+  idCard: string
+  giCertificate: string
+  sampleProductPhoto: string
+  businessRegistration: string
+}
+
+
+
 interface FormData {
   businessName: string
   contactPerson: string
   email: string
   phone: string
+  password: string
   businessType: string
   location: string
   experience: string
@@ -19,6 +48,7 @@ export default function RegistrationForm() {
     contactPerson: "",
     email: "",
     phone: "",
+    password: "",
     businessType: "",
     location: "",
     experience: "",
@@ -29,7 +59,8 @@ export default function RegistrationForm() {
   const [validationErrors, setValidationErrors] = useState<ValidationErrors>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitSuccess, setSubmitSuccess] = useState(false)
- 
+  const { toast } = useToast();
+
   const businessTypes = [
     "Kashmiri Artisan Collective",
     "Handicraft Trader/Exporter",
@@ -48,35 +79,41 @@ export default function RegistrationForm() {
 
   const validateStep1 = (): boolean => {
     const errors: ValidationErrors = {}
-    
+
     if (!formData.businessName.trim()) {
       errors.businessName = "Business name is required"
     }
-    
+
     if (!formData.contactPerson.trim()) {
       errors.contactPerson = "Contact person is required"
     }
-    
+
     if (!formData.email.trim()) {
       errors.email = "Email address is required"
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       errors.email = "Please enter a valid email address"
     }
-    
+
     if (!formData.phone.trim()) {
       errors.phone = "Phone number is required"
     } else if (!/^[\+]?[1-9][\d]{0,15}$/.test(formData.phone.replace(/[\s\-\(\)]/g, ''))) {
       errors.phone = "Please enter a valid phone number"
     }
-    
+
+    if (!formData.password || formData.password.trim().length === 0) {
+      errors.password = "Password is required"
+    } else if (formData.password.length < 8) {
+      errors.password = "Password must be at least 8 characters"
+    }
+
     if (!formData.businessType) {
       errors.businessType = "Please select a business type"
     }
-    
+
     if (!formData.location.trim()) {
       errors.location = "Location is required"
     }
-    
+
     if (!formData.description.trim()) {
       errors.description = "Business description is required"
     } else if (formData.description.trim().length < 50) {
@@ -90,14 +127,14 @@ export default function RegistrationForm() {
   const validateStep2 = (): boolean => {
     const requiredDocs = requiredDocuments.filter(doc => doc.required)
     const uploadedRequiredDocs = requiredDocs.filter(doc => uploadedFiles.includes(doc.name))
-    
+
     if (uploadedRequiredDocs.length < requiredDocs.length) {
       setValidationErrors({
         documents: "Please upload all required documents"
       })
       return false
     }
-    
+
     setValidationErrors({})
     return true
   }
@@ -108,7 +145,7 @@ export default function RegistrationForm() {
       ...formData,
       [name]: value,
     })
-    
+
     // Clear validation error for this field
     if (validationErrors[name]) {
       setValidationErrors({
@@ -167,24 +204,24 @@ Please review this application within 3-5 working days.
 
     // Using mailto (basic email functionality)
     const mailtoUrl = `mailto:support@kashmirartstay.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`
-    
+
     // For a real implementation, you would use an email service like EmailJS, Nodemailer, or a backend API
     // Here's a placeholder for a more robust email service:
-    
+
     try {
       // Simulate API call delay
       await new Promise(resolve => setTimeout(resolve, 2000))
-      
+
       // In a real app, you would make an API call like:
       // const response = await fetch('/api/send-email', {
       //   method: 'POST',
       //   headers: { 'Content-Type': 'application/json' },
       //   body: JSON.stringify({ to: 'support@kashmirartstay.com', subject: emailSubject, body: emailBody })
       // })
-      
+
       // For now, open default email client
       window.open(mailtoUrl)
-      
+
       return true
     } catch (error) {
       console.error('Email sending failed:', error)
@@ -194,21 +231,54 @@ Please review this application within 3-5 working days.
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    
+
     if (!validateStep1() || !validateStep2()) {
       return
     }
 
     setIsSubmitting(true)
-    
+
     try {
       // Send email with application data
       const emailSent = await sendEmail(formData, uploadedFiles)
-      
+
+      const data = {
+        businessName: formData.businessName,
+        contactPerson: formData.contactPerson,
+        email: formData.email,
+        password: formData.password,
+        phoneNumber: formData.phone,
+        businessType: formData.businessType,
+        location: formData.location,
+        yearsOfExperience: formData.experience,
+        businessDescription: formData.description,
+        idCard: uploadedFiles.find(f => f.toLowerCase().includes("aadhar") || f.toLowerCase().includes("passport")) || "",
+        giCertificate: uploadedFiles.find(f => f.toLowerCase().includes("gi certificate")) || "",
+        sampleProductPhoto: uploadedFiles.find(f => f.toLowerCase().includes("sample product")) || "",
+        businessRegistration: uploadedFiles.find(f => f.toLowerCase().includes("business registration")) || "",
+        applicationDate: new Date().toISOString()
+      }
+
+      const res = await axios.post<IFormResponse>(`${process.env.NEXT_PUBLIC_API_URL}/vendor/register`, data)
+      if (res.data.status === "success") {
+        toast({
+          title: "Success",
+          description: res.data.message
+        })
+      }
+      if (res.data.status === "error") {
+        toast({
+          title: "Failed",
+          description: res.data.message
+        })
+      }
+
+
+
       if (emailSent) {
         setSubmitSuccess(true)
-        console.log("Application submitted successfully:", formData)
-        
+
+
         // Reset form after successful submission
         setTimeout(() => {
           setFormData({
@@ -216,6 +286,7 @@ Please review this application within 3-5 working days.
             contactPerson: "",
             email: "",
             phone: "",
+            password: "",
             businessType: "",
             location: "",
             experience: "",
@@ -246,7 +317,7 @@ Please review this application within 3-5 working days.
           <CheckCircle className="w-16 h-16 text-green-600 mx-auto mb-4" />
           <h2 className="text-2xl font-bold text-gray-800 mb-4">Application Submitted Successfully!</h2>
           <p className="text-gray-600 mb-6">
-            Your artisan registration application has been submitted and emailed to our team. 
+            Your artisan registration application has been submitted and emailed to our team.
             You will receive a confirmation email shortly.
           </p>
           <div className="bg-green-50 border border-green-200 rounded-lg p-4">
@@ -309,9 +380,8 @@ Please review this application within 3-5 working days.
                   name="businessName"
                   value={formData.businessName}
                   onChange={handleInputChange}
-                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#0085CC] focus:border-transparent ${
-                    validationErrors.businessName ? 'border-red-500' : 'border-gray-300'
-                  }`}
+                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#0085CC] focus:border-transparent ${validationErrors.businessName ? 'border-red-500' : 'border-gray-300'
+                    }`}
                   required
                 />
                 {validationErrors.businessName && (
@@ -329,9 +399,8 @@ Please review this application within 3-5 working days.
                   name="contactPerson"
                   value={formData.contactPerson}
                   onChange={handleInputChange}
-                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#0085CC] focus:border-transparent ${
-                    validationErrors.contactPerson ? 'border-red-500' : 'border-gray-300'
-                  }`}
+                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#0085CC] focus:border-transparent ${validationErrors.contactPerson ? 'border-red-500' : 'border-gray-300'
+                    }`}
                   required
                 />
                 {validationErrors.contactPerson && (
@@ -349,9 +418,8 @@ Please review this application within 3-5 working days.
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#0085CC] focus:border-transparent ${
-                    validationErrors.email ? 'border-red-500' : 'border-gray-300'
-                  }`}
+                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#0085CC] focus:border-transparent ${validationErrors.email ? 'border-red-500' : 'border-gray-300'
+                    }`}
                   required
                 />
                 {validationErrors.email && (
@@ -363,15 +431,33 @@ Please review this application within 3-5 working days.
               </div>
 
               <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Password *</label>
+                <input
+                  type="text"
+                  name="password"
+                  value={formData.password}
+                  onChange={handleInputChange}
+                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#0085CC] focus:border-transparent ${validationErrors.email ? 'border-red-500' : 'border-gray-300'
+                    }`}
+                  required
+                />
+                {validationErrors.password && (
+                  <p className="text-red-500 text-sm mt-1 flex items-center gap-1">
+                    <AlertCircle className="w-4 h-4" />
+                    {validationErrors.password}
+                  </p>
+                )}
+              </div>
+
+              <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
                 <input
                   type="tel"
                   name="phone"
                   value={formData.phone}
                   onChange={handleInputChange}
-                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#0085CC] focus:border-transparent ${
-                    validationErrors.phone ? 'border-red-500' : 'border-gray-300'
-                  }`}
+                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#0085CC] focus:border-transparent ${validationErrors.phone ? 'border-red-500' : 'border-gray-300'
+                    }`}
                   required
                 />
                 {validationErrors.phone && (
@@ -388,9 +474,8 @@ Please review this application within 3-5 working days.
                   name="businessType"
                   value={formData.businessType}
                   onChange={handleInputChange}
-                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#0085CC] focus:border-transparent ${
-                    validationErrors.businessType ? 'border-red-500' : 'border-gray-300'
-                  }`}
+                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#0085CC] focus:border-transparent ${validationErrors.businessType ? 'border-red-500' : 'border-gray-300'
+                    }`}
                   required
                 >
                   <option value="">Select Business Type</option>
@@ -407,27 +492,26 @@ Please review this application within 3-5 working days.
                   </p>
                 )}
               </div>
+            </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Location *</label>
-                <input
-                  type="text"
-                  name="location"
-                  value={formData.location}
-                  onChange={handleInputChange}
-                  placeholder="City, State"
-                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#0085CC] focus:border-transparent ${
-                    validationErrors.location ? 'border-red-500' : 'border-gray-300'
+            <div className="mt-6">
+              <label className="block w-full text-sm font-medium text-gray-700 mb-2">Location *</label>
+              <input
+                type="text"
+                name="location"
+                value={formData.location}
+                onChange={handleInputChange}
+                placeholder="City, State"
+                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#0085CC] focus:border-transparent ${validationErrors.location ? 'border-red-500' : 'border-gray-300'
                   }`}
-                  required
-                />
-                {validationErrors.location && (
-                  <p className="text-red-500 text-sm mt-1 flex items-center gap-1">
-                    <AlertCircle className="w-4 h-4" />
-                    {validationErrors.location}
-                  </p>
-                )}
-              </div>
+                required
+              />
+              {validationErrors.location && (
+                <p className="text-red-500 text-sm mt-1 flex items-center gap-1">
+                  <AlertCircle className="w-4 h-4" />
+                  {validationErrors.location}
+                </p>
+              )}
             </div>
 
             <div className="mt-6">
@@ -450,9 +534,8 @@ Please review this application within 3-5 working days.
                 onChange={handleInputChange}
                 rows={4}
                 placeholder="Tell us about your craft, specialties, and what makes your business unique... (minimum 50 characters)"
-                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#0085CC] focus:border-transparent ${
-                  validationErrors.description ? 'border-red-500' : 'border-gray-300'
-                }`}
+                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#0085CC] focus:border-transparent ${validationErrors.description ? 'border-red-500' : 'border-gray-300'
+                  }`}
                 required
               />
               <div className="flex justify-between items-center mt-1">
@@ -505,11 +588,10 @@ Please review this application within 3-5 working days.
                     )}
                   </div>
 
-                  <div className={`border-2 border-dashed rounded-lg p-6 text-center transition-colors ${
-                    uploadedFiles.includes(doc.name) 
-                      ? 'border-green-300 bg-green-50' 
-                      : 'border-gray-300 hover:border-[#0085CC]'
-                  }`}>
+                  <div className={`border-2 border-dashed rounded-lg p-6 text-center transition-colors ${uploadedFiles.includes(doc.name)
+                    ? 'border-green-300 bg-green-50'
+                    : 'border-gray-300 hover:border-[#0085CC]'
+                    }`}>
                     <Upload className="w-8 h-8 text-gray-400 mx-auto mb-2" />
                     <p className="text-gray-600 mb-2">
                       Drag and drop your file here, or{" "}
@@ -561,7 +643,7 @@ Please review this application within 3-5 working days.
                   <p className="text-gray-600">{formData.experience || 'Not specified'}</p>
                 </div>
               </div>
-              
+
               <div>
                 <span className="font-medium text-gray-700">Business Description:</span>
                 <p className="text-gray-600 mt-1">{formData.description}</p>

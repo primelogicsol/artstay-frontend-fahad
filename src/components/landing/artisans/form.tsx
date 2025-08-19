@@ -217,6 +217,8 @@ import { Button } from "~/components/ui/button";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import axios from "axios";
+import { useToast } from "~/hooks/use-toast";
 
 // Define the validation schema
 const formSchema = z
@@ -273,6 +275,7 @@ const formSchema = z
   );
 
 export const ArtisanForm = () => {
+  const { toast } = useToast();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -285,16 +288,35 @@ export const ArtisanForm = () => {
     },
   });
 
-  const onSubmit = (data: z.infer<typeof formSchema>) => {
-    console.log("Form submitted:", data);
+
+  const onSubmit = async (data: z.infer<typeof formSchema>) => {
+    try {
+      console.log("Form submitted:", data);
+
+      const res = await axios.post<{ status: string; message: string; data?: any }>(
+        `${process.env.NEXT_PUBLIC_API_URL}/artisan/find-artisan`,
+        data
+      );
+
+      if (res.data.status === "success") {
+        toast({ title: "Success", description: res.data.message });
+      } else if (res.data.status === "error") {
+        toast({ title: "Failed", description: res.data.message, variant: "destructive" });
+        alert(res.data.message);
+      }
+    } catch (error: any) {
+      console.error("Request failed:", error);
+      toast({ title: "Error", description: "Something went wrong", variant: "destructive" });
+    }
   };
+
 
   return (
     <div className="z-[100] -mt-16 col-span-2 lg:col-span-1 flex max-w-lg flex-col gap-3 rounded-lg bg-white shadow-xl">
       <div className="rounded-t-lg bg-primary p-3 border-white border-2">
         <h2 className="text-center font-heading text-xl font-bold text-white">
           Craft School – Vacation with Kashmiri Artisan <br />
-<i className="text-sm">Live the craft Learn the legacy </i>
+          <i className="text-sm">Live the craft Learn the legacy </i>
         </h2>
       </div>
       <Form {...form}>
@@ -319,7 +341,9 @@ export const ArtisanForm = () => {
                       <SelectValue placeholder="Boutique Craft" />
                     </SelectTrigger>
                   </FormControl>
-                  <SelectContent>
+                  <SelectContent style={{
+                    zIndex: 100
+                  }}>
                     <SelectItem value="boutique">Boutique Craft</SelectItem>
                   </SelectContent>
                 </Select>
@@ -339,13 +363,16 @@ export const ArtisanForm = () => {
                 <Select
                   onValueChange={field.onChange}
                   defaultValue={field.value}
+
                 >
                   <FormControl>
                     <SelectTrigger>
                       <SelectValue placeholder="– Select Sub Craft –" />
                     </SelectTrigger>
                   </FormControl>
-                  <SelectContent>
+                  <SelectContent style={{
+                    zIndex: 100
+                  }}>
                     <SelectItem value="sub1">Sub Craft 1</SelectItem>
                     <SelectItem value="sub2">Sub Craft 2</SelectItem>
                   </SelectContent>
@@ -371,7 +398,9 @@ export const ArtisanForm = () => {
                         <SelectValue placeholder="– Select Goal –" />
                       </SelectTrigger>
                     </FormControl>
-                    <SelectContent>
+                    <SelectContent style={{
+                      zIndex: 100
+                    }}>
                       <SelectItem value="learning">Learning a new skill</SelectItem>
                       <SelectItem value="heritage">Preserving ancestral heritage</SelectItem>
                       <SelectItem value="cultural">Cultural immersion</SelectItem>
@@ -399,7 +428,9 @@ export const ArtisanForm = () => {
                         <SelectValue placeholder="– Select Travel Type –" />
                       </SelectTrigger>
                     </FormControl>
-                    <SelectContent>
+                    <SelectContent style={{
+                      zIndex: 100
+                    }}>
                       <SelectItem value="solo">Solo</SelectItem>
                       <SelectItem value="couple">Couple</SelectItem>
                       <SelectItem value="family">Family</SelectItem>
@@ -450,7 +481,7 @@ export const ArtisanForm = () => {
             />
           </div>
 
-          <Button type="submit">FIND ARTISAN</Button>
+          <Button type="submit" >FIND ARTISAN</Button>
         </form>
       </Form>
     </div>

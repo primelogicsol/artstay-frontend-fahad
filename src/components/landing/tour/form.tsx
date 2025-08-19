@@ -6,6 +6,8 @@ import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "~/components/ui/select"
+import { useToast } from "~/hooks/use-toast"
+import axios from "axios"
 
 const formSchema = z
   .object({
@@ -26,6 +28,7 @@ const formSchema = z
 type FormData = z.infer<typeof formSchema>;
 
 export const TourForm = () => {
+  const { toast } = useToast();
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -40,8 +43,25 @@ export const TourForm = () => {
     },
   })
 
-  const onSubmit = (data: FormData) => {
-    console.log("Form submitted:", data)
+  const onSubmit = async (data: FormData) => {
+    try {
+      console.log("Form submitted:", data);
+
+      const res = await axios.post<{ status: string; message: string; data?: any }>(
+        `${process.env.NEXT_PUBLIC_API_URL}/artisan/find-traditional-tour`,
+        data
+      );
+
+      if (res.data.status === "success") {
+        toast({ title: "Success", description: res.data.message });
+      } else if (res.data.status === "error") {
+        toast({ title: "Failed", description: res.data.message, variant: "destructive" });
+        alert(res.data.message);
+      }
+    } catch (error: any) {
+      console.error("Request failed:", error);
+      toast({ title: "Error", description: "Something went wrong", variant: "destructive" });
+    }
   }
 
   const budgetCheckpoints = [
@@ -69,7 +89,7 @@ export const TourForm = () => {
     <div className="z-[100] -mt-[100] mx-auto w-full max-w-xl rounded-lg bg-white shadow-lg">
       <div className="rounded-t-lg bg-primary p-4 text-white border-white border-2">
         <h2 className="text-center text-xl font-bold">Find an ArtStay Traditional Kashmir Tour <br /> <span className='text-sm italic'>Not Just a Trip, A Journey into Kashmir&apos;s Soul & Heritage</span></h2>
-       
+
       </div>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 p-6">
@@ -145,7 +165,7 @@ export const TourForm = () => {
                           const index = Number.parseInt(e.target.value)
                           const selectedCheckpoint = budgetCheckpoints[index]
                           const fallbackCheckpoint = budgetCheckpoints[0]
-                          
+
                           if (index >= 0 && index < budgetCheckpoints.length && selectedCheckpoint) {
                             field.onChange(selectedCheckpoint.value)
                           } else if (fallbackCheckpoint) {

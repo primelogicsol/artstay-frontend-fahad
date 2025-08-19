@@ -19,6 +19,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "~/components/ui/select";
+import { useToast } from "~/hooks/use-toast";
+import axios from "axios";
 
 const formSchema = z
   .object({
@@ -38,6 +40,7 @@ const formSchema = z
 type FormData = z.infer<typeof formSchema>;
 
 export const RetreatForm = () => {
+  const { toast } = useToast();
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -51,8 +54,26 @@ export const RetreatForm = () => {
     },
   });
 
-  const onSubmit = (data: FormData) => {
-    console.log("Form submitted:", data);
+  const onSubmit = async (data: FormData) => {
+    try {
+      console.log("Form submitted:", data);
+
+      const res = await axios.post<{ status: string; message: string; data?: any }>(
+        `${process.env.NEXT_PUBLIC_API_URL}/artisan/find-sustainable-living-tour`,
+        data
+      );
+
+      if (res.data.status === "success") {
+        toast({ title: "Success", description: res.data.message });
+      } else if (res.data.status === "error") {
+        toast({ title: "Failed", description: res.data.message, variant: "destructive" });
+        alert(res.data.message);
+      }
+    } catch (error: any) {
+      console.error("Request failed:", error);
+      toast({ title: "Error", description: "Something went wrong", variant: "destructive" });
+    }
+
   };
 
   const budgetCheckpoints = [
