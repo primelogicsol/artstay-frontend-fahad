@@ -20,6 +20,8 @@ import { Input } from "~/components/ui/input";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import axios from "axios";
+import { useToast } from "~/hooks/use-toast";
 
 const destinations = [
   {
@@ -90,6 +92,7 @@ const formSchema = z
   });
 
 export const SafariForm = () => {
+  const { toast } = useToast();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -103,8 +106,26 @@ export const SafariForm = () => {
     },
   });
 
-  const onSubmit = (data: z.infer<typeof formSchema>) => {
+  const onSubmit = async (data: z.infer<typeof formSchema>) => {
     console.log("Form submitted:", data);
+    try {
+      console.log("Form submitted:", data);
+
+      const res = await axios.post<{ status: string; message: string; data?: any }>(
+        `${process.env.NEXT_PUBLIC_API_URL}/safari/find-safari`,
+        data
+      );
+
+      if (res.data.status === "success") {
+        toast({ title: "Success", description: res.data.message });
+      } else if (res.data.status === "error") {
+        toast({ title: "Failed", description: res.data.message, variant: "destructive" });
+        alert(res.data.message);
+      }
+    } catch (error: any) {
+      console.error("Request failed:", error);
+      toast({ title: "Error", description: "Something went wrong", variant: "destructive" });
+    }
   };
 
   return (
@@ -175,7 +196,9 @@ export const SafariForm = () => {
                         <SelectValue placeholder="– Select Activity Preferences –" />
                       </SelectTrigger>
                     </FormControl>
-                    <SelectContent>
+                    <SelectContent style={{
+                      zIndex: 100
+                    }}>
                       <SelectItem value="liveArtisan">Live Artisan Demonstrations</SelectItem>
                       <SelectItem value="craftParticipation">Hands-on Craft Participation</SelectItem>
                       <SelectItem value="artisanInterviews">Artisan Interviews & Story Sessions</SelectItem>

@@ -5,6 +5,22 @@ import type React from "react"
 import { useState } from "react"
 import { Eye, EyeOff, Mail, Lock, ArrowRight } from "lucide-react"
 import Link from "next/link"
+import axios from "axios"
+import { useToast } from "~/hooks/use-toast"
+
+export interface AuthResponse {
+  status: string
+  message: string
+  data: Data
+}
+
+export interface Data {
+  vendorId: string
+  businessName: string
+  email: string
+  businessType: string
+}
+
 
 export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false)
@@ -13,6 +29,8 @@ export default function LoginForm() {
     password: "",
     rememberMe: false,
   })
+  const { toast } = useToast();
+  const [loading, setLoading] = useState(false)
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target
@@ -22,10 +40,33 @@ export default function LoginForm() {
     })
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     // Handle login logic
     console.log("Login attempt:", formData)
+    const data = {
+      email: formData.email,
+      password: formData.password
+    }
+    setLoading(true)
+
+    const res = await axios.post<AuthResponse>(`${process.env.NEXT_PUBLIC_API_URL}/vendor/login`, data)
+    if(res.data.status === 'success'){
+      setLoading(false)
+      toast({
+        title: "Success",
+        description: res.data.message
+      })
+    }
+
+    if(res.data.status === 'error'){
+      setLoading(false)
+      toast({
+        title: 'Failed',
+        description: res.data.message
+      })
+    }
+
   }
 
   return (
@@ -99,7 +140,7 @@ export default function LoginForm() {
             type="submit"
             className="w-full flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-[#005380] to-[#0085CC] text-white rounded-lg hover:shadow-lg transition-all duration-300"
           >
-            <span>Sign In</span>
+            <span>{loading ? 'Signing in...' : "Sign In"}</span>
             <ArrowRight className="w-5 h-5" />
           </button>
         </form>

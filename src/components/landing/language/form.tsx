@@ -19,6 +19,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "~/components/ui/select";
+import axios from "axios";
+import { useToast } from "~/hooks/use-toast";
 
 const formSchema = z.object({
   serviceType: z.string().min(1, "Please select service type"),
@@ -29,6 +31,7 @@ const formSchema = z.object({
 });
 
 export const LanguageForm = () => {
+  const { toast } = useToast();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -40,8 +43,25 @@ export const LanguageForm = () => {
     },
   });
 
-  const onSubmit = (data: z.infer<typeof formSchema>) => {
-    console.log("Form submitted:", data);
+  const onSubmit = async (data: z.infer<typeof formSchema>) => {
+    try {
+      console.log("Form submitted:", data);
+
+      const res = await axios.post<{ status: string; message: string; data?: any }>(
+        `${process.env.NEXT_PUBLIC_API_URL}/language/find-language-exploration`,
+        data
+      );
+
+      if (res.data.status === "success") {
+        toast({ title: "Success", description: res.data.message });
+      } else if (res.data.status === "error") {
+        toast({ title: "Failed", description: res.data.message, variant: "destructive" });
+        alert(res.data.message);
+      }
+    } catch (error: any) {
+      console.error("Request failed:", error);
+      toast({ title: "Error", description: "Something went wrong", variant: "destructive" });
+    }
   };
 
   const languageOptions = [
