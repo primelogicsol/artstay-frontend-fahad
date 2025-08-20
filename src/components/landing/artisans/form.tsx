@@ -300,14 +300,34 @@ export const ArtisanForm = () => {
 
       if (res.data.status === "success") {
         toast({ title: "Success", description: res.data.message });
-      } else if (res.data.status === "error") {
-        toast({ title: "Failed", description: res.data.message, variant: "destructive" });
-        alert(res.data.message);
+      } 
+
+      if (res.data.status === "error") {
+        throw new Error(res.data.message); // force catch
       }
+      
     } catch (error: any) {
-      console.error("Request failed:", error);
-      toast({ title: "Error", description: "Something went wrong", variant: "destructive" });
+      if (axios.isAxiosError(error)) {
+        // API responded with error (like 400, 404, 500, etc.)
+        const apiMessage = error.response?.data?.message || "API request failed";
+        console.error("Axios error:", error.response?.data || error.message);
+
+        toast({
+          title: "Error",
+          description: apiMessage,
+          variant: "destructive",
+        });
+      } else {
+        // Some other unexpected error
+        console.error("Unexpected error:", error);
+        toast({
+          title: "Error",
+          description: "Unexpected error occurred",
+          variant: "destructive",
+        });
+      }
     }
+
   };
 
 
